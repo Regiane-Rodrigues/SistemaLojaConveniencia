@@ -17,6 +17,7 @@ Sistema a ser desenvolvido para disciplina de POO - Programação Orientada a Ob
 <h5>Compra -- Gustavo Nava<h5>
 <h5>Financeiro -- Allan Matheus<h5>
 <h5>Fiscal -- Regiane Rodrigues<h5>
+<h5>Bancos -- Allan<h5>
 <h5>Pessoa -- <h5>
   
  
