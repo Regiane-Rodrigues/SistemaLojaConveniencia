@@ -10,12 +10,13 @@ Sistema a ser desenvolvido para disciplina de POO - Programação Orientada a Ob
   
 
 <h3>Classes / Responsável<h3>
-<h5>Caixa -- Lucas Braga<h5>
+<h5>Vendas-- Lucas Braga<h5>
+<h5>Pagamento-- Lucas Braga<h5>
 <h5>Estoque -- Gustavo Netshon<h5>
-<h5>Cadastro -- Maycon Felipe<h5>
+<h5>Produto -- Maycon Felipe<h5>
 <h5>Compra -- Gustavo Nava<h5>
 <h5>Financeiro -- Allan Matheus<h5>
 <h5>Fiscal -- Regiane Rodrigues<h5>
+<h5>Pessoa -- <h5>
   
-  
-  
+ 
