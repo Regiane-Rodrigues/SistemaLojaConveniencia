@@ -37,45 +37,52 @@ public class LojaConveniencia {
             System.out.println("-----------------------------------------");
             
             //onde o atributo para escolha é lida e define qual opção é escolhida
-            escolha = ler.nextInt();
-            
-            //o switch que escolhe a opção baseada no atributo escolha
-            switch (escolha) {
-                case 1:
-                    //um teste para entrar em outro menu dentro de um método separado no final
-                    testeVenda();
-                    break;
-                case 2:
-                    System.out.println("Teste Compras");
-                    break;
-                case 3:
-                    System.out.println("Teste Estoque");
-                    break;
-                case 4:
-                    System.out.println("Teste Cadastro Produto");
-                    break;
-                case 5:
-                    System.out.println("Teste Fiscal");
-                    break;
-                case 6:
-                    System.out.println("Teste Financeiro");
-                    break;
-                case 7:
-                    System.out.println("Teste Cadastro Pessoa");
-                    break;
-                case 8:
-                    System.out.println("Teste Cadastro Banco");
-                    break;
-                case 9:
-                    System.out.println("Teste Pagamento");
-                    break;
-                case 0:
-                    System.out.println("Obrigado Volte Sempre!");
-                    break;    
-                default:
-                    System.out.println("erro");
-                    break;
+            //o hasNextInt garante que a entrada precisa ser um número inteiro para prosseguir
+            if (ler.hasNextInt()) {
+                escolha = ler.nextInt();
+                //o switch que escolhe a opção baseada no atributo escolha
+                switch (escolha) {
+                    case 1:
+                        //um teste para entrar em outro menu dentro de um método separado no final
+                        testeVenda();
+                        break;
+                    case 2:
+                        System.out.println("Teste Compras");
+                        break;
+                    case 3:
+                        System.out.println("Teste Estoque");
+                        break;
+                    case 4:
+                        System.out.println("Teste Cadastro Produto");
+                        break;
+                    case 5:
+                        System.out.println("Teste Fiscal");
+                        break;
+                    case 6:
+                        System.out.println("Teste Financeiro");
+                        break;
+                    case 7:
+                        System.out.println("Teste Cadastro Pessoa");
+                        break;
+                    case 8:
+                        System.out.println("Teste Cadastro Banco");
+                        break;
+                    case 9:
+                        System.out.println("Teste Pagamento");
+                        break;
+                    case 0:
+                        System.out.println("Obrigado Volte Sempre!");
+                        break;    
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                //esse next() é para que o programa não entre em um loop infinito
+                //ler.next();
             }
+            
         //a condição para o fim do laço de repetição
         } while (escolha != 0);
         
@@ -97,18 +104,25 @@ public class LojaConveniencia {
             System.out.println("1 - Teste");
             System.out.println("0 - Voltar");
             System.out.println("-----------------------------------------");
-            escolha = ler.nextInt();
-            switch (escolha) {
-                case 1:
-                    System.out.println("Teste Venda");
-                    break;
-                case 0:
-                    System.out.println("Voltando");
-                    break;
-                default:
-                    System.out.println("erro");
-                    break;
+            
+            if (ler.hasNextInt()) {
+                escolha = ler.nextInt();
+                switch (escolha) {
+                    case 1:
+                        System.out.println("Teste Venda");
+                        break;
+                    case 0:
+                        System.out.println("Voltando");
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                ler.next();
             }
+            
         //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolha != 0);
     }
