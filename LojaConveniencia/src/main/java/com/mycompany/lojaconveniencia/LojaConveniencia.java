@@ -80,7 +80,7 @@ public class LojaConveniencia {
             } else {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 //esse next() é para que o programa não entre em um loop infinito
-                //ler.next();
+                ler.next();
             }
             
         //a condição para o fim do laço de repetição
