@@ -15,5 +15,8 @@ public class Estoque {
     public int quantidade_entrada;
     
     
+    {   
+        System.out.println("teste");
+}
     
 }
