@@ -13,5 +13,7 @@ public class Estoque {
     public int codigo_produto;
     public String nome_produto;
     public int quantidade_entrada;
- 
+    
+    
+    
 }
