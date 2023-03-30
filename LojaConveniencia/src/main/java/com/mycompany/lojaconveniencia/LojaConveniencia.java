@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class LojaConveniencia {
 
     public static void main(String[] args) {
-        System.out.println("1");
         Scanner ler = new Scanner(System.in);
         
         //declarando o atributo que serve para escolher a opção do menu, ainda sem solução para caso não seja int
