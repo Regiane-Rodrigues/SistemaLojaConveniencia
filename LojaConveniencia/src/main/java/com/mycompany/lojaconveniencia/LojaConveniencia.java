@@ -67,7 +67,7 @@ public class LojaConveniencia {
                         System.out.println("Teste Cadastro Banco");
                         break;
                     case 9:
-                        System.out.println("Teste Pagamento");
+                        Pagamento();
                         break;
                     case 0:
                         System.out.println("Obrigado Volte Sempre!");
@@ -123,6 +123,66 @@ public class LojaConveniencia {
             }
             
         //aqui ele volta para o menu princial ao invés de encerrar o programa
+        } while (escolha != 0);
+    }
+    
+    //menu da classe Pagamento
+    public static void Pagamento(){
+        Scanner ler = new Scanner(System.in);
+        
+        Pagamento pgt1 = new Pagamento();
+        
+        pgt1.setTipo("Débito");
+        pgt1.setNum(0000000000000000);
+        pgt1.setValidade(0425);
+        pgt1.setCod(666);
+        pgt1.setSenha(4002);
+        pgt1.setStatus("Autorizado");
+        
+        int escolha = -1;
+        
+        System.out.println("------------------------------------------");
+        System.out.println("|| Menu Pagamento ||");
+        
+        do {
+            System.out.println("------------------------------------------");
+            System.out.println("Escolha a opção desejada.");
+            System.out.println("1 - Cadastrar Cartão");
+            System.out.println("2 - Efetuar Pagamento");
+            System.out.println("3 - Remover Cartão");
+            System.out.println("0 - Voltar");
+            System.out.println("------------------------------------------");
+                
+            if (ler.hasNextInt()){
+                escolha = ler.nextInt();
+                switch (escolha){
+                    case 1:
+                        System.out.println("Cadastrar Cartão");
+                        //teste de cadastro de cartão
+                        System.out.println(pgt1.getTipo());
+                        System.out.println(pgt1.getNum());
+                        System.out.println(pgt1.getValidade());
+                        System.out.println(pgt1.getCod());
+                        System.out.println(pgt1.getSenha());
+                        System.out.println(pgt1.getStatus());
+                        
+                        break:
+                    case 2:
+                        System.out.println("Efetuar pagamento");
+                        break:
+                    case 3:
+                        System.out.println("Remover cartão");
+                        brack:
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        brack:
+                }
+            }else{
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                ler.next();
+            }
+            
+            
         } while (escolha != 0);
     }
 }
