@@ -64,7 +64,7 @@ public class LojaConveniencia {
                         System.out.println("Teste Cadastro Pessoa");
                         break;
                     case 8:
-                        System.out.println("Teste Cadastro Banco");
+                        banco();
                         break;
                     case 9:
                         Pagamento();
@@ -126,6 +126,68 @@ public class LojaConveniencia {
         } while (escolha != 0);
     }
     
+    //menu da classe Banco
+    public static void banco() {
+        
+        Scanner ler = new Scanner(System.in);
+        
+        int escolha = -1;
+        
+        Banco banco1 = new Banco(123456, 0, 1, "José da Silva");
+        banco1.nomeBanco = "Banco do Brasil";
+        banco1.agencia = 1234;
+        banco1.endereco = "Rua A, Nº1 - Centro, Cascavel-PR";
+        banco1.tipoDocumento = "CPF";
+        banco1.emissor = "Receita Federal";
+        
+        System.out.println("-----------------------------------------");
+        System.out.println(" || Teste Menu Banco ||");
+        
+        do {            
+            System.out.println("-----------------------------------------");
+            System.out.println("Escolha a opção desejada.");
+            System.out.println("1 - Lancar Documentos a Pagar");
+            System.out.println("2 - Consultar Documentos a Receber");
+            System.out.println("3 - Controlar Credito");
+            System.out.println("4 - Gerar Boleto");
+            System.out.println("0 - Voltar");
+            System.out.println("-----------------------------------------");
+            
+            if (ler.hasNextInt()) {
+                escolha = ler.nextInt();
+                switch (escolha) {
+                    case 1:
+                        int documentoPago = banco1.lancarDocPagar();
+                        System.out.println("Lancando documento nº" + (documentoPago-1) + " como pago");
+                        System.out.println("Documento lancado com sucesso, próximo documento a ser recebido: " + documentoPago);
+                        break;
+                    case 2:
+                        int documentoReceber = banco1.consultarDocReceber();
+                        System.out.println(" - Número do documento: " + documentoReceber);
+                        break;
+                    case 3:
+                        System.out.println("Credito disponível: " + banco1.controlarCredito());
+                        break;
+                    case 4:
+                        int boleto = banco1.gerarBoletos();
+                        System.out.println(" - Número do documento: " + boleto);
+                        break;
+                    case 0:
+                        System.out.println("Voltando");
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                ler.next();
+            }
+            
+        //aqui ele volta para o menu princial ao invés de encerrar o programa
+        } while (escolha != 0);
+    }
+    
     //menu da classe Pagamento
     public static void Pagamento(){
         Scanner ler = new Scanner(System.in);
@@ -166,16 +228,16 @@ public class LojaConveniencia {
                         System.out.println(pgt1.getSenha());
                         System.out.println(pgt1.getStatus());
                         
-                        break:
+                        break;
                     case 2:
                         System.out.println("Efetuar pagamento");
-                        break:
+                        break;
                     case 3:
                         System.out.println("Remover cartão");
-                        brack:
+                        break;
                     default:
                         System.out.println("Opção inválida. Favor informar outra opção.");
-                        brack:
+                        break;
                 }
             }else{
                 System.out.println("Opção inválida. Favor informar outra opção.");
