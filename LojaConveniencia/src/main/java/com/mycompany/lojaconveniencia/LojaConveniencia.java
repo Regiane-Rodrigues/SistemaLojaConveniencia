@@ -247,4 +247,61 @@ public class LojaConveniencia {
             
         } while (escolha != 0);
     }
+    // menu classe venda
+    public static void venda(){
+        Scanner ler = new Scanner(System.in);
+        
+         int escolha = -1;
+        
+        venda venda = new venda();
+        venda.abrir_caixa(1000.00);
+        venda.registrar_Venda("Costela Minga 3,400 KGS ");
+        double valorCompra = 210.55;
+        venda.valorDesconto = 1.50;
+        venda.finalizar_Processo_Compra(valorCompra);
+        venda.fechar_Caixa(1210.55);
+        
+        System.out.println("-----------------------------------------");
+        System.out.println(" || Menu Venda ||");
+        
+        do {            
+            System.out.println("-----------------------------------------");
+            System.out.println("Escolha a opção desejada.");
+            System.out.println("1 - Abrir caixa ");
+            System.out.println("2 - Fechar caixa ");
+            System.out.println("3 - Registrar venda ");
+            System.out.println("4 - Finalizar processo de compra ");
+            System.out.println("0 - Voltar ");
+            System.out.println("-----------------------------------------");
+            
+            if (ler.hasNextInt()) {
+                escolha = ler.nextInt();
+                switch (escolha) {
+                    case 1: 
+                        System.out.println("Caixa aberto: " + venda.valorAberturaCaixa);
+                        break;
+                    case 2:
+                        System.out.println("Valor do fechamento: " + venda.valorFechamento);               
+                        break;
+                    case 3:
+                        System.out.println("Registrar venda: " + venda.registrar_Venda(""));
+                        break;
+                    case 4:
+                        System.out.println("Finalizar processo de compra: " + venda.totalCompra);
+                        break;
+                    case 0:
+                        System.out.println("Voltando");
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                ler.next();
+            }
+            
+        //aqui ele volta para o menu princial ao invés de encerrar o programa
+        } while (escolha != 0);
+    }
 }
