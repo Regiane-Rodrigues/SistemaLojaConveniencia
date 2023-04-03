@@ -1,8 +1,8 @@
 package com.mycompany.lojaconveniencia;
 
-/**
- *
- * @author Gustavo H Nava
+/*
+ * Analista: Allan Matheus Pereira
+ * Desenvolvedor: Gustavo Henrique Nava
  */
 public class Banco {
     
