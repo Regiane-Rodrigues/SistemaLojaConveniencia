@@ -303,5 +303,67 @@ public class LojaConveniencia {
             
         //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolha != 0);
+
+    // menu classe cadastroProduto
+    public static void cadastroProduto(){
+        Scanner ler = new Scanner(System.in);
+        
+         int escolha = -1;
+        
+        cadastroProduto cadastro = new cadastroProduto();
+
+        cadastro.cadastroDeProduto("Energético Monster");
+        cadastro.cadastroCodigo(5555.5555);
+        cadastro.calcularestoque(escolha);
+        cadastro.categoria("Bebida Energética");
+        cadastro.cadastroDeVendedor("Jailson Mendes");
+      
+        
+        System.out.println("-----------------------------------------");
+        System.out.println(" || Menu Cadastro de Produtos ||");
+        
+        do {            
+            System.out.println("-----------------------------------------");
+            System.out.println("Escolha a opção desejada.");
+            System.out.println("1 - Cadastro de Produto ");
+            System.out.println("2 - Cadastro de código ");
+            System.out.println("3 - Calcular estoque ");
+            System.out.println("4 - Categoria ");
+            System.out.println("5 - Cadastrar vendedor ");
+            System.out.println("0 - Voltar ");
+            System.out.println("-----------------------------------------");
+            
+            if (ler.hasNextInt()) {
+                escolha = ler.nextInt();
+                switch (escolha) {
+                    case 1: 
+                        System.out.println("Informe o nome do produto: " + cadastro.decricaoProduto);
+                        break;
+                    case 2:
+                        System.out.println("Código cadastrado no produto: " + cadastro.cadastroCodigo(escolha));               
+                        break;
+                    case 3:
+                        System.out.println("Quantidade em estoque: " + cadastro.calcularestoque(escolha));
+                        break;
+                    case 4:
+                        System.out.println("Este produto faz parte da categoria de: " + cadastro.categoria(null) );
+                        break;
+                    case 5:
+                        System.out.println("Novo vendedor cadastrado: " + cadastro.cadastroDeVendedor(null));
+                        break;
+                    case 0:
+                        System.out.println("Voltando");
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Favor informar outra opção.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção inválida. Favor informar outra opção.");
+                ler.next();
+            }
+            
+        //aqui ele volta para o menu princial ao invés de encerrar o programa
+        } while (escolha != 0);        
     }
 }
