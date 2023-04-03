@@ -42,8 +42,7 @@ public class LojaConveniencia {
                 //o switch que escolhe a opção baseada no atributo escolha
                 switch (escolha) {
                     case 1:
-                        //um teste para entrar em outro menu dentro de um método separado no final
-                        testeVenda();
+                        venda();
                         break;
                     case 2:
                         System.out.println("Teste Compras");
@@ -52,7 +51,7 @@ public class LojaConveniencia {
                         System.out.println("Teste Estoque");
                         break;
                     case 4:
-                        System.out.println("Teste Cadastro Produto");
+                        cadastroProduto();
                         break;
                     case 5:
                         System.out.println("Teste Fiscal");
@@ -85,45 +84,6 @@ public class LojaConveniencia {
         //a condição para o fim do laço de repetição
         } while (escolha != 0);
         
-    }
-    
-    //o teste de um método que chama outro menu que pode servir para outra classe
-    public static void testeVenda() {
-        
-        Scanner ler = new Scanner(System.in);
-        
-        int escolha = -1;
-        
-        System.out.println("-----------------------------------------");
-        System.out.println(" || Teste Menu Vendas ||");
-        
-        do {            
-            System.out.println("-----------------------------------------");
-            System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Teste");
-            System.out.println("0 - Voltar");
-            System.out.println("-----------------------------------------");
-            
-            if (ler.hasNextInt()) {
-                escolha = ler.nextInt();
-                switch (escolha) {
-                    case 1:
-                        System.out.println("Teste Venda");
-                        break;
-                    case 0:
-                        System.out.println("Voltando");
-                        break;
-                    default:
-                        System.out.println("Opção inválida. Favor informar outra opção.");
-                        break;
-                }
-            } else {
-                System.out.println("Opção inválida. Favor informar outra opção.");
-                ler.next();
-            }
-            
-        //aqui ele volta para o menu princial ao invés de encerrar o programa
-        } while (escolha != 0);
     }
     
     //menu da classe Banco
@@ -303,6 +263,7 @@ public class LojaConveniencia {
             
         //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolha != 0);
+    }
 
     // menu classe cadastroProduto
     public static void cadastroProduto(){
