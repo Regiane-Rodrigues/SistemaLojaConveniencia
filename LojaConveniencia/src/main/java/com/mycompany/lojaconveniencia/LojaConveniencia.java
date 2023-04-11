@@ -169,9 +169,8 @@ public class LojaConveniencia {
         do {
             System.out.println("------------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Cadastrar Cartão");
-            System.out.println("2 - Efetuar Pagamento");
-            System.out.println("3 - Remover Cartão");
+            System.out.println("1 - Contas a pagar");
+            System.out.println("2 - Contas a receber");
             System.out.println("0 - Voltar");
             System.out.println("------------------------------------------");
                 
@@ -179,7 +178,7 @@ public class LojaConveniencia {
                 escolha = ler.nextInt();
                 switch (escolha){
                     case 1:
-                        System.out.println("Cadastrar Cartão");
+                        System.out.println("Contas a pagar");
                         //teste de cadastro de cartão
                         System.out.println(pgt1.getTipo());
                         System.out.println(pgt1.getNum());
@@ -187,14 +186,12 @@ public class LojaConveniencia {
                         System.out.println(pgt1.getCod());
                         System.out.println(pgt1.getSenha());
                         System.out.println(pgt1.getStatus());
+                        break;
                         
-                        break;
                     case 2:
-                        System.out.println("Efetuar pagamento");
+                        System.out.println("Contas a receber");
                         break;
-                    case 3:
-                        System.out.println("Remover cartão");
-                        break;
+                        
                     default:
                         System.out.println("Opção inválida. Favor informar outra opção.");
                         break;
