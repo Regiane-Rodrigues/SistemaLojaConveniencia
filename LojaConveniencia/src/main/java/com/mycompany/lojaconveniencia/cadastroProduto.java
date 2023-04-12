@@ -4,21 +4,20 @@ public class cadastroProduto {
     
     public String idNomeProduto;
     public String marcaProduto;
-    public String decricaoProduto;
-    public boolean precoProduto;
+    public String descricaoProduto;
+    public double precoProduto;
     public String fornecedorProduto;
     public String categoriaProduto;
     public int codigoProduto;
-    public boolean codigoBarras;
+    public double codigoBarras;
     public String unidadeMedida;
     public String quantidade;
     
+    public String cadastroDeProduto(String cadastroDeProduto){
+        return "";
+    }
      public double calcularestoque(double calculoEstoque) {
         return .9;
-    }
-
-    public String cadastroDeProduto(String atribuir_Produto) {
-        return "";
     }
 
     public String cadastroDeVendedor(String cadastro_vendedor) {
