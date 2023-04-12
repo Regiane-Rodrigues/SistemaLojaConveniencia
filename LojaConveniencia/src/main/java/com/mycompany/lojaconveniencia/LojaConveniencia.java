@@ -249,7 +249,6 @@ public class LojaConveniencia {
                 switch (escolha){
                     case 1:
                         System.out.println("Contas a pagar");
-                        //teste de cadastro de cartão
                         System.out.println(pgt1.getTipo());
                         System.out.println(pgt1.getNum());
                         System.out.println(pgt1.getValidade());
