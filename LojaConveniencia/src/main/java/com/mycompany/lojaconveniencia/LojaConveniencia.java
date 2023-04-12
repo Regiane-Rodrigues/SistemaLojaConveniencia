@@ -1,6 +1,8 @@
 
 package com.mycompany.lojaconveniencia;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -87,18 +89,16 @@ public class LojaConveniencia {
     }
     
     //menu da classe Banco
+    //eu ainda não sei se entendi bem o objetivo da classe
+    //mas fiz o possível com os atributos e métodos disponíveis
     public static void banco() {
         
         Scanner ler = new Scanner(System.in);
         
         int escolha = -1;
         
-        Banco banco1 = new Banco(123456, 0, 1, "José da Silva");
-        banco1.nomeBanco = "Banco do Brasil";
-        banco1.agencia = 1234;
-        banco1.endereco = "Rua A, Nº1 - Centro, Cascavel-PR";
-        banco1.tipoDocumento = "CPF";
-        banco1.emissor = "Receita Federal";
+        List<Banco> documentos = new ArrayList<>();
+        Banco banco1;
         
         System.out.println("-----------------------------------------");
         System.out.println(" || Teste Menu Banco ||");
@@ -106,8 +106,8 @@ public class LojaConveniencia {
         do {            
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Lancar Documentos a Pagar");
-            System.out.println("2 - Consultar Documentos a Receber");
+            System.out.println("1 - Lancar Documentos");
+            System.out.println("2 - Consultar Documentos");
             System.out.println("3 - Controlar Credito");
             System.out.println("4 - Gerar Boleto");
             System.out.println("0 - Voltar");
@@ -117,21 +117,90 @@ public class LojaConveniencia {
                 escolha = ler.nextInt();
                 switch (escolha) {
                     case 1:
-                        int documentoPago = banco1.lancarDocPagar();
-                        System.out.println("Lancando documento nº" + (documentoPago-1) + " como pago");
-                        System.out.println("Documento lancado com sucesso, próximo documento a ser recebido: " + documentoPago);
+                        System.out.println("Informe o nome do banco: ");
+                        ler.nextLine();
+                        String nomeB = ler.nextLine();
+                        
+                        System.out.println("Informe a agencia: ");
+                        int numAgencia = ler.nextInt();
+                        
+                        System.out.println("Informe o endereco do banco: ");
+                        ler.nextLine();
+                        String enderecoBanco = ler.nextLine();
+                        
+                        System.out.println("Informe o tipo do documento: ");
+                        String tipoDoc = ler.nextLine();
+                        
+                        System.out.println("Informe o emissor: ");
+                        String emissorDoc = ler.nextLine();
+                        
+                        System.out.println("Informe o numero da conta: ");
+                        int numConta = ler.nextInt();
+                        
+                        System.out.println("Informe o digito da conta: ");
+                        int numDigito = ler.nextInt();
+                        
+                        System.out.println("Informe o numero do documento: ");
+                        int numDocumento = ler.nextInt();
+                        
+                        System.out.println("Informe o nome do pagador: ");
+                        ler.nextLine();
+                        String nomePagador = ler.nextLine();
+                        
+                        System.out.println("Informe o valor do documento: ");
+                        double valorD = ler.nextDouble();
+                        
+                        banco1 = new Banco(numConta, numDigito, numDocumento, nomePagador);
+                        banco1.nomeBanco = nomeB;
+                        banco1.agencia = numAgencia;
+                        banco1.endereco = enderecoBanco;
+                        banco1.tipoDocumento = tipoDoc;
+                        banco1.emissor = emissorDoc;
+                        banco1.valorDocumento = valorD;
+                        
+                        documentos.add(banco1);
+                        
+                        System.out.println("Documento nº" + banco1.lancarDocPagar() + " lancado.");
+                        System.out.println("Numero de documentos landacos: " +banco1.baixarDocPagos);
                         break;
+                        
                     case 2:
-                        int documentoReceber = banco1.consultarDocReceber();
-                        System.out.println(" - Número do documento: " + documentoReceber);
+                        System.out.println("Listando documentos: ");
+                        for (int i = 0; i < documentos.size(); i++) {
+                            System.out.println("-----------------------------------------");
+                            System.out.println("Cadastro Nº "+i);
+                            int documentoReceber = documentos.get(i).consultarDocReceber();
+                            System.out.println(" - Número do documento: " + documentoReceber);
+                        }
                         break;
+                        
                     case 3:
-                        System.out.println("Credito disponível: " + banco1.controlarCredito());
+                        documentos.get(0).controlarCredito();
                         break;
+                        
                     case 4:
-                        int boleto = banco1.gerarBoletos();
-                        System.out.println(" - Número do documento: " + boleto);
+                        System.out.println("Informe o numero do cadastro do documento para gerar o boleto: ");
+                        if (ler.hasNextInt()) {
+                            int numero = ler.nextInt();
+                            if ((numero > -1) && (numero < documentos.size())) {
+                                System.out.println("Informe o valor do boleto: ");
+                                if (ler.hasNextDouble()) {
+                                    documentos.get(numero).valorDocumento = ler.nextDouble();
+                                } else {
+                                    System.out.println("Valor invalido, cancelando.");
+                                    ler.next();
+                                    break;
+                                }
+                                int boleto = documentos.get(numero).gerarBoletos();
+                                System.out.println(" - Número do documento: " + boleto);
+                            } else {
+                                System.out.println("Numero do cadastro invalido, favor consultar o numero do cadastro na opcao 2.");
+                            }                            
+                        } else {
+                            System.out.println("Numero do cadastro invalido, favor consultar o numero do cadastro na opcao 2.");
+                        }
                         break;
+                        
                     case 0:
                         System.out.println("Voltando");
                         break;

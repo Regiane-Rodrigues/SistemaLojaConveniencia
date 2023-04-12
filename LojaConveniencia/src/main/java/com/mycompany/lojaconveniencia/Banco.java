@@ -1,5 +1,7 @@
 package com.mycompany.lojaconveniencia;
 
+import java.util.Scanner;
+
 /*
  * Analista: Allan Matheus Pereira
  * Desenvolvedor: Gustavo Henrique Nava
@@ -12,6 +14,8 @@ public class Banco {
     public String tipoDocumento;
     public String emissor;
     public static int baixarDocPagos;
+    public static double valorCredito;
+    public double valorDocumento;
     
     private int conta;
     private int digitoConta;
@@ -27,9 +31,7 @@ public class Banco {
     
     public int lancarDocPagar() {
         baixarDocPagos++;
-        int novoNumeroDocumento = numeroDocumento + 1;
-        this.numeroDocumento = novoNumeroDocumento;
-        return novoNumeroDocumento;
+        return this.numeroDocumento;
     }
     
     public int consultarDocReceber() {
@@ -41,14 +43,18 @@ public class Banco {
     }
     
     public double controlarCredito() {
-        return 2000;
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Valor do credito atual: "+valorCredito);
+        System.out.println("Informe o novo valor do crédito: ");
+        valorCredito = ler.nextDouble();
+        return valorCredito;
     }
     
     public int gerarBoletos() {
         System.out.println("Gerando boleto para " + this.pagador);
         System.out.println(" - Banco: " + this.nomeBanco);
         System.out.println(" - Agencia: " + this.agencia);
-        System.out.println(" - Tipo de documento do pagador: " + this.tipoDocumento);
+        System.out.println(" - Valor: " + this.valorDocumento);
         return this.numeroDocumento;
     }
     
