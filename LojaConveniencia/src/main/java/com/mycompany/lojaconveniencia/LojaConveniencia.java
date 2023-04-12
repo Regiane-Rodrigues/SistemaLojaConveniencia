@@ -11,6 +11,8 @@ import java.util.Scanner;
  */
 public class LojaConveniencia {
 
+    static List<Banco> documentos = new ArrayList<>();
+    
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         
@@ -97,7 +99,6 @@ public class LojaConveniencia {
         
         int escolha = -1;
         
-        List<Banco> documentos = new ArrayList<>();
         Banco banco1;
         
         System.out.println("-----------------------------------------");
