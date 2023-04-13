@@ -226,7 +226,7 @@ public class LojaConveniencia {
         Pagamento pgt1 = new Pagamento();
         
         pgt1.setTipo("Débito");
-        pgt1.setNum(0000000000000000);
+        pgt1.setNum("0000000000000000");
         pgt1.setValidade(0425);
         pgt1.setCod(666);
         pgt1.setSenha(4002);
