@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class LojaConveniencia {
 
     static List<Banco> documentos = new ArrayList<>();
+    static List<Pessoa> cadastro = new ArrayList<>();
     
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
@@ -64,7 +65,7 @@ public class LojaConveniencia {
                         System.out.println("Teste Financeiro");
                         break;
                     case 7:
-                        System.out.println("Teste Cadastro Pessoa");
+                        CadastroPessoa();
                         break;
                     case 8:
                         banco();
@@ -248,18 +249,12 @@ public class LojaConveniencia {
                 escolha = ler.nextInt();
                 switch (escolha){
                     case 1:
-                        System.out.println("Contas a pagar\n");
-                        System.out.print("Débito ou Crédito: ");
+                        System.out.println("Contas a pagar");
                         System.out.println(pgt1.getTipo());
-                        System.out.print("Numero do cartão: ");
                         System.out.println(pgt1.getNum());
-                        System.out.print("Data de validade: ");
                         System.out.println(pgt1.getValidade());
-                        System.out.print("Código de segurança: ");
                         System.out.println(pgt1.getCod());
-                        System.out.print("Senha: ");
                         System.out.println(pgt1.getSenha());
-                        System.out.print("Status: ");
                         System.out.println(pgt1.getStatus());
                         break;
                         
@@ -370,7 +365,7 @@ public class LojaConveniencia {
                 escolha = ler.nextInt();
                 switch (escolha) {
                     case 1: 
-                        System.out.println("Informe o nome do produto: " + cadastro.decricaoProduto);
+                        System.out.println("Informe o nome do produto: " + cadastro.descricaoProduto);
                         break;
                     case 2:
                         System.out.println("Código cadastrado no produto: " + cadastro.cadastroCodigo(escolha));               
@@ -398,5 +393,171 @@ public class LojaConveniencia {
             
         //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolha != 0);        
+    }   
+    public static void CadastroPessoa(){
+        Scanner ler = new Scanner (System.in);
+        
+        int escolha = -1;
+        
+        Pessoa pessoa1;
+                
+         System.out.println("-------------------------------");
+         System.out.println(" || Menu Pessoa ||");
+    
+    do{
+        System.out.println("------------------------------");
+        System.out.println("Escolha a opção desejada! ");
+        System.out.println("1 - Cadastrar Cliente");
+        System.out.println("2 - Listar Cliente! ");
+        System.out.println("3 - Alterar Cliente! ");
+    
+    
+        if(ler.hasNextInt()){
+            escolha = ler.nextInt();
+            switch (escolha) {
+                case 1:
+                    System.out.println("Informe o id");
+                    int id = ler.nextInt();
+                    
+                    System.out.println("Informe o nome do Cliente");
+                    ler.nextLine();
+                    String nome = ler.nextLine();
+                
+                    System.out.println("Informe o CPF: ");
+                    String documento = ler.nextLine();
+                    //String documento = documento.get(numero).gerarBoletos();
+                    //System.out.println("Informe a Inscrição estadual");
+                    System.out.println("Informe o CEP ");
+                    String cep = ler.nextLine();
+                    
+                    System.out.println(" Informe o endereco");
+                    String endereco = ler.nextLine();
+                    
+                    System.out.println("Informe o numero do endereço");
+                    String num_Endereco = ler.nextLine();
+                    
+                    System.out.println(" Informe a cidade");
+                    String cidade = ler.nextLine();
+                    
+                    System.out.println(" Informe o estado");
+                    String estado = ler.nextLine();
+                    
+                    System.out.println("Informe o tipo de cadastro(F/J)");
+                    char tipo_Cadastro = ler.next().charAt(0);
+                    tipo_Cadastro = Character.toUpperCase(tipo_Cadastro);
+                    
+                    int inscricao_Estadual = 0;    
+                            
+                    while(tipo_Cadastro != 'F' && tipo_Cadastro != 'J'){
+                        System.out.println("Informação inválida, informe novamente (F/J) ");
+                        tipo_Cadastro = ler.next().charAt(0);
+                        tipo_Cadastro = Character.toUpperCase(tipo_Cadastro);
+                    }
+                    if(tipo_Cadastro == 'J'){
+                        System.out.println("Informe a Inscrição Estadual");
+                         inscricao_Estadual = ler.nextInt();
+                    }
+                            
+                    System.out.println("Informe a data de Cadastro");
+                    ler.nextLine();
+                    String data_Cadastro = ler.nextLine();
+                    
+                    System.out.println("Informe o email");
+                    String email = ler.nextLine();
+                    
+                    System.out.println("Informe o telefone");
+                    String telefone = ler.nextLine();
+                    
+                    pessoa1 = new Pessoa(id, documento, data_Cadastro, nome, cep, endereco, cidade, estado, tipo_Cadastro);
+                    pessoa1.num_Endereco = num_Endereco;
+                     if(tipo_Cadastro == 'J'){
+                        pessoa1.setinscricao_Estadual(inscricao_Estadual);
+                     
+                    }
+                    pessoa1.email = email;
+                    pessoa1.telefone = telefone;
+                    
+                    cadastro.add(pessoa1);
+                    
+                    break;
+                    
+                case 2:
+                    for (int i = 0; i < cadastro.size(); i++) {
+                        cadastro.get(i).listar_Cadastro();
+                        System.out.println("----------------------------------");
+                    }
+                    break;
+                
+                case 3:
+                    System.out.println("Informe o ID que deseja alterar: ");
+                    int id_altera = ler.nextInt();
+                    
+                    for (int i = 0; i < cadastro.size(); i++) {
+                        if(cadastro.get(i).getId_Pessoa() == id_altera){
+                            
+                    
+                            System.out.println("Informe o nome do Cliente");
+                            ler.nextLine();
+                            cadastro.get(i).nome =  ler.nextLine();
+                          
+                
+                        System.out.println("Informe o documento: ");
+                        String documentoA = ler.nextLine();
+                        cadastro.get(i).setDocumento(documentoA);
+                    //String documento = documento.get(numero).gerarBoletos();
+                    //System.out.println("Informe a Inscrição estadual");
+                        System.out.println("Informe o CEP ");
+                        cadastro.get(i).CEP =  ler.nextLine();
+                    
+                        System.out.println(" Informe o endereco");
+                        cadastro.get(i).endereco =  ler.nextLine();
+                    
+                        System.out.println("Informe o numero do endereço");
+                        cadastro.get(i).num_Endereco =  ler.nextLine();
+                    
+                        System.out.println(" Informe a cidade");
+                        cadastro.get(i).cidade =  ler.nextLine();
+                    
+                        System.out.println(" Informe o estado");
+                        cadastro.get(i).estado =  ler.nextLine();
+                    
+                        System.out.println("Informe o tipo de cadastro(F/J)");
+                        char tipo_CadastroA = ler.next().charAt(0);
+                        tipo_Cadastro = Character.toUpperCase(tipo_CadastroA);
+                    
+                        int inscricao_EstadualA = 0;    
+                            
+                        while(tipo_CadastroA != 'F' && tipo_CadastroA != 'J'){
+                            System.out.println("Informação inválida, informe novamente (F/J) ");
+                            tipo_CadastroA = ler.next().charAt(0);
+                            tipo_CadastroA = Character.toUpperCase(tipo_CadastroA);
+                    }
+                        cadastro.get(i).tipo_Cadastro = tipo_CadastroA;
+                        
+                        if(tipo_CadastroA == 'J'){
+                            System.out.println("Informe a Inscrição Estadual");
+                            inscricao_EstadualA = ler.nextInt();
+                            cadastro.get(i).setinscricao_Estadual(inscricao_EstadualA);
+                    }
+                            
+                            System.out.println("Informe a data de Cadastro");
+                            ler.nextLine();
+                            String data_CadastroA = ler.nextLine();
+                            cadastro.get(i).setData_Cdastro(data_CadastroA);
+                    
+                            System.out.println("Informe o email");
+                            cadastro.get(i).email =  ler.nextLine();
+                    
+                            System.out.println("Informe o telefone");
+                            cadastro.get(i).telefone =  ler.nextLine();
+   
+                        }
+
+                    }
+                    break;  
+            }       
+        }
+    } while (escolha != 0); 
     }
+    
 }

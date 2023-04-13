@@ -1,4 +1,6 @@
 package com.mycompany.lojaconveniencia;
+// Desenvolvedor : Lucas Braga de Lima
+// Analista : Gustavo Nava
 
 import java.util.Date;
 
@@ -7,7 +9,7 @@ public class Pessoa {
     private int id_Pessoa;
     private String documento;
     private int inscricao_Estadual;
-    private Date data_Cadastro;
+    private String data_Cadastro;
     
     public String nome;
     public String CEP; 
@@ -19,7 +21,7 @@ public class Pessoa {
     public String email;
     public String telefone;
 
-    public Pessoa(int id_Pessoa, String documento, Date data_Cadastro, String nome, String CEP, String endereco, String cidade, String estado, char tipo_Cadastro) {
+    public Pessoa(int id_Pessoa, String documento, String data_Cadastro, String nome, String CEP, String endereco, String cidade, String estado, char tipo_Cadastro) {
         this.id_Pessoa = id_Pessoa;
         this.documento = documento;
         this.data_Cadastro = data_Cadastro;
@@ -57,11 +59,28 @@ public class Pessoa {
     }
     
     
-    public Date getData_Cadastro(){
+    public String getData_Cadastro(){
         return data_Cadastro;
     }
-    public void setData_Cdastro(Date data_Cadastro){
+    public void setData_Cdastro(String data_Cadastro){
         this.data_Cadastro = data_Cadastro;
+    }
+    public void listar_Cadastro(){
+        
+        System.out.println("id : " + this.id_Pessoa);
+        System.out.println("Nome: " + this.nome);
+        
+        if(this.tipo_Cadastro == 'F'){
+            System.out.println("CPF: " + this.documento);
+               }else{
+            System.out.println("CNPJ" + this.documento);
+        }
+        System.out.println("Endereco: " + this.endereco);
+        System.out.println("Email: " + this.email);
+        System.out.println("Estado: " + this.estado);
+        System.out.println("Cidade: " + this.cidade);
+        System.out.println("Número do Endereco: " + this.num_Endereco);
+        System.out.println("Telefone: " + this.telefone);
     }
     
 }
