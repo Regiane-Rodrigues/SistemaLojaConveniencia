@@ -248,12 +248,18 @@ public class LojaConveniencia {
                 escolha = ler.nextInt();
                 switch (escolha){
                     case 1:
-                        System.out.println("Contas a pagar");
+                        System.out.println("Contas a pagar\n");
+                        System.out.print("Débito ou Crédito: ");
                         System.out.println(pgt1.getTipo());
+                        System.out.print("Numero do cartão: ");
                         System.out.println(pgt1.getNum());
+                        System.out.print("Data de validade: ");
                         System.out.println(pgt1.getValidade());
+                        System.out.print("Código de segurança: ");
                         System.out.println(pgt1.getCod());
+                        System.out.print("Senha: ");
                         System.out.println(pgt1.getSenha());
+                        System.out.print("Status: ");
                         System.out.println(pgt1.getStatus());
                         break;
                         
