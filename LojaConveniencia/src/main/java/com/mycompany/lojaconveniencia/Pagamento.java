@@ -3,14 +3,14 @@ package com.mycompany.lojaconveniencia;
 public class Pagamento {
     //Atributos da classe junto com os seus tipos.
     public String tipoCartao;
-    private double numCartao;
+    private String numCartao;
     private int validadeCartao;
     private int codSeguranca;
     private int digitarSenha;
     public String statusPagamento;
     
     //Constutor da classe com seus atributos devidademente definidos.
-    public void PagamentoCartao(String tipo, double num, int validade, int cod, int senha, String status){
+    public void PagamentoCartao(String tipo, String num, int validade, int cod, int senha, String status){
         tipoCartao = tipo;
         numCartao = num;
         validadeCartao = validade;
@@ -31,7 +31,7 @@ public class Pagamento {
         return "Numero: " + numCartao; 
     }
     
-    public void setNum(double num){
+    public void setNum(String num){
         this.numCartao = num;
     }
     
