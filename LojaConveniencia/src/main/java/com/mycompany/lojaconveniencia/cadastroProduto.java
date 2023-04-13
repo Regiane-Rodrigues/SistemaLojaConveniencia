@@ -9,7 +9,7 @@ public class cadastroProduto {
     public String fornecedorProduto;
     public String categoriaProduto;
     public int codigoProduto;
-    public double codigoBarras;
+    public String codigoBarras;
     public String unidadeMedida;
     public String quantidade;
     
