@@ -5,48 +5,33 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
  * @author aluno
  */
 public class LojaConveniencia {
 
-    static List<Banco> documentos = new ArrayList<>();
-    static List<Pessoa> cadastro = new ArrayList<>();
+    static List<Banco> arrayDocumentos = new ArrayList<>();
+    static List<Pessoa> arrayPessoas = new ArrayList<>();
     static Scanner inserir = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        //declarando o atributo que serve para escolher a opção do menu, ainda sem solução para caso não seja int
         int escolhaMenu = -1;
 
         System.out.println("-----------------------------------------");
         System.out.println(" || Sistema Loja de Conveniêcnia ||");
 
-        //início do laço de repetição do que garante que o código vai ficar repetindo a menos que a condição seja cumprida no final dele
         do {
-            //o menu como aparecerá na tela
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Venda");
-            System.out.println("2 - Compra");
-            System.out.println("3 - Estoque");
-            System.out.println("4 - Produto");
-            System.out.println("5 - Fiscal");
-            System.out.println("6 - Financeiro");
-            System.out.println("7 - Pessoa");
-            System.out.println("8 - Banco");
-            System.out.println("9 - Pagamento");
-            System.out.println("0 - Sair");
+            System.out.println("1 - Venda \n2 - Compra \n3 - Estoque \n4 - Produto \n5 - Fiscal \n6 - Financeiro \n7 - Pessoa \n8 - Banco \n9 - Pagamento \n0 - Sair");
             System.out.println("-----------------------------------------");
 
-            //onde o atributo para escolha é lida e define qual opção é escolhida
-            //o hasNextInt garante que a entrada precisa ser um número inteiro para prosseguir
             if (inserir.hasNextInt()) {
                 escolhaMenu = inserir.nextInt();
-                //o switch que escolhe a opção baseada no atributo escolha
+
                 switch (escolhaMenu) {
                     case 1:
-                        venda();
+                        menuVenda();
                         break;
                     case 2:
                         System.out.println("Teste Compras");
@@ -55,7 +40,7 @@ public class LojaConveniencia {
                         System.out.println("Teste Estoque");
                         break;
                     case 4:
-                        cadastroProduto();
+                        menuCadastroProduto();
                         break;
                     case 5:
                         System.out.println("Teste Fiscal");
@@ -64,13 +49,13 @@ public class LojaConveniencia {
                         System.out.println("Teste Financeiro");
                         break;
                     case 7:
-                        cadastroPessoa();
+                        menuCadastroPessoa();
                         break;
                     case 8:
-                        banco();
+                        menuBanco();
                         break;
                     case 9:
-                        pagamento();
+                        menuPagamento();
                         break;
                     case 0:
                         System.out.println("Obrigado Volte Sempre!");
@@ -81,22 +66,15 @@ public class LojaConveniencia {
                 }
             } else {
                 System.out.println("Opção inválida. Favor informar outra opção.");
-                //esse next() é para que o programa não entre em um loop infinito
-                inserir.next();
+                inserir.next(); //favor não apagar garante que o menu não entre em loop infinito caso uma informação errada seja passada no scanner
             }
-
-            //a condição para o fim do laço de repetição
         } while (escolhaMenu != 0);
-
     }
 
-    //menu da classe Banco
-    //eu ainda não sei se entendi bem o objetivo da classe
-    //mas fiz o possível com os atributos e métodos disponíveis
-    public static void banco() {
+    public static void menuBanco() {
 
         int escolhaMenuBanco = -1;
-
+        
         Banco bancoCadastro;
 
         System.out.println("-----------------------------------------");
@@ -105,11 +83,7 @@ public class LojaConveniencia {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Lancar Documentos");
-            System.out.println("2 - Consultar Documentos");
-            System.out.println("3 - Controlar Credito");
-            System.out.println("4 - Gerar Boleto");
-            System.out.println("0 - Voltar");
+            System.out.println("1 - Lancar Documentos \n2 - Consultar Documentos \n3 - Controlar Credito \n4 - Gerar Boleto \n0 - Voltar");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
@@ -157,7 +131,7 @@ public class LojaConveniencia {
                         bancoCadastro.emissor = emissorDoc;
                         bancoCadastro.valorDocumento = valorD;
 
-                        documentos.add(bancoCadastro);
+                        arrayDocumentos.add(bancoCadastro);
 
                         System.out.println("Documento nº" + bancoCadastro.lancarDocPagar() + " lancado.");
                         System.out.println("Numero de documentos landacos: " + bancoCadastro.baixarDocPagos);
@@ -165,32 +139,32 @@ public class LojaConveniencia {
 
                     case 2:
                         System.out.println("Listando documentos: ");
-                        for (int i = 0; i < documentos.size(); i++) {
+                        for (int i = 0; i < arrayDocumentos.size(); i++) {
                             System.out.println("-----------------------------------------");
                             System.out.println("Cadastro Nº " + i);
-                            int documentoReceber = documentos.get(i).consultarDocReceber();
+                            int documentoReceber = arrayDocumentos.get(i).consultarDocReceber();
                             System.out.println(" - Número do documento: " + documentoReceber);
                         }
                         break;
 
                     case 3:
-                        documentos.get(0).controlarCredito();
+                        arrayDocumentos.get(0).controlarCredito();
                         break;
 
                     case 4:
                         System.out.println("Informe o numero do cadastro do documento para gerar o boleto: ");
                         if (inserir.hasNextInt()) {
                             int numero = inserir.nextInt();
-                            if ((numero > -1) && (numero < documentos.size())) {
+                            if ((numero > -1) && (numero < arrayDocumentos.size())) {
                                 System.out.println("Informe o valor do boleto: ");
                                 if (inserir.hasNextDouble()) {
-                                    documentos.get(numero).valorDocumento = inserir.nextDouble();
+                                    arrayDocumentos.get(numero).valorDocumento = inserir.nextDouble();
                                 } else {
                                     System.out.println("Valor invalido, cancelando.");
                                     inserir.next();
                                     break;
                                 }
-                                int boleto = documentos.get(numero).gerarBoletos();
+                                int boleto = arrayDocumentos.get(numero).gerarBoletos();
                                 System.out.println(" - Número do documento: " + boleto);
                             } else {
                                 System.out.println("Numero do cadastro invalido, favor consultar o numero do cadastro na opcao 2.");
@@ -211,13 +185,10 @@ public class LojaConveniencia {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 inserir.next();
             }
-
-            //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolhaMenuBanco != 0);
     }
 
-    //menu da classe Pagamento
-    public static void pagamento() {
+    public static void menuPagamento() {
 
         Pagamento realizarPagamento = new Pagamento();
 
@@ -236,22 +207,14 @@ public class LojaConveniencia {
         do {
             System.out.println("------------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Contas a pagar");
-            System.out.println("2 - Contas a receber");
-            System.out.println("0 - Voltar");
+            System.out.println("1 - Contas a pagar \n2 - Contas a receber \n0 - Voltar");
             System.out.println("------------------------------------------");
 
             if (inserir.hasNextInt()) {
                 escolhaMenuPagamento = inserir.nextInt();
                 switch (escolhaMenuPagamento) {
                     case 1:
-                        System.out.println("Contas a pagar");
-                        System.out.println(realizarPagamento.getTipo());
-                        System.out.println(realizarPagamento.getNum());
-                        System.out.println(realizarPagamento.getValidade());
-                        System.out.println(realizarPagamento.getCod());
-                        System.out.println(realizarPagamento.getSenha());
-                        System.out.println(realizarPagamento.getStatus());
+                        System.out.println("Contas a pagar\n"+ realizarPagamento.getTipo() +"\n"+ realizarPagamento.getNum() +"\n"+ realizarPagamento.getValidade() +"\n"+ realizarPagamento.getCod() +"\n"+ realizarPagamento.getSenha() +"\n"+ realizarPagamento.getStatus());
                         break;
 
                     case 2:
@@ -266,12 +229,10 @@ public class LojaConveniencia {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 inserir.next();
             }
-
         } while (escolhaMenuPagamento != 0);
     }
 
-    // menu classe venda
-    public static void venda() {
+    public static void menuVenda() {
 
         int escolhaMenuVendas = -1;
 
@@ -289,11 +250,7 @@ public class LojaConveniencia {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Abrir caixa ");
-            System.out.println("2 - Fechar caixa ");
-            System.out.println("3 - Registrar venda ");
-            System.out.println("4 - Finalizar processo de compra ");
-            System.out.println("0 - Voltar ");
+            System.out.println("1 - Abrir caixa \n2 - Fechar caixa \n3 - Registrar venda \n4 - Finalizar processo de compra \n0 - Voltar ");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
@@ -322,13 +279,10 @@ public class LojaConveniencia {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 inserir.next();
             }
-
-            //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolhaMenuVendas != 0);
     }
 
-    // menu classe cadastroProduto
-    public static void cadastroProduto() {
+    public static void menuCadastroProduto() {
 
         int escolhaMenuProduto = -1;
 
@@ -346,12 +300,7 @@ public class LojaConveniencia {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Cadastro de Produto ");
-            System.out.println("2 - Cadastro de código ");
-            System.out.println("3 - Calcular estoque ");
-            System.out.println("4 - Categoria ");
-            System.out.println("5 - Cadastrar vendedor ");
-            System.out.println("0 - Voltar ");
+            System.out.println("1 - Cadastro de Produto \n2 - Cadastro de código \n3 - Calcular estoque \n4 - Categoria \n5 - Cadastrar vendedor \n0 - Voltar ");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
@@ -383,16 +332,14 @@ public class LojaConveniencia {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 inserir.next();
             }
-
-            //aqui ele volta para o menu princial ao invés de encerrar o programa
         } while (escolhaMenuProduto != 0);
     }
 
-    public static void cadastroPessoa() {
+    public static void menuCadastroPessoa() {
 
         int escolhaMenuPessoa = -1;
 
-        Pessoa pessoa1;
+        Pessoa pessoaCadastro;
 
         System.out.println("-------------------------------");
         System.out.println(" || Menu Pessoa ||");
@@ -400,9 +347,8 @@ public class LojaConveniencia {
         do {
             System.out.println("------------------------------");
             System.out.println("Escolha a opção desejada! ");
-            System.out.println("1 - Cadastrar Cliente");
-            System.out.println("2 - Listar Cliente! ");
-            System.out.println("3 - Alterar Cliente! ");
+            System.out.println("1 - Cadastrar Cliente \n2 - Listar Cliente! \n3 - Alterar Cliente! ");
+            System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
                 escolhaMenuPessoa = inserir.nextInt();
@@ -417,8 +363,7 @@ public class LojaConveniencia {
 
                         System.out.println("Informe o CPF: ");
                         String documento = inserir.nextLine();
-                        //String documento = documento.get(numero).gerarBoletos();
-                        //System.out.println("Informe a Inscrição estadual");
+
                         System.out.println("Informe o CEP ");
                         String cep = inserir.nextLine();
 
@@ -426,7 +371,7 @@ public class LojaConveniencia {
                         String endereco = inserir.nextLine();
 
                         System.out.println("Informe o numero do endereço");
-                        String num_Endereco = inserir.nextLine();
+                        String numEndereco = inserir.nextLine();
 
                         System.out.println(" Informe a cidade");
                         String cidade = inserir.nextLine();
@@ -435,25 +380,25 @@ public class LojaConveniencia {
                         String estado = inserir.nextLine();
 
                         System.out.println("Informe o tipo de cadastro(F/J)");
-                        char tipo_Cadastro = inserir.next().charAt(0);
-                        tipo_Cadastro = Character.toUpperCase(tipo_Cadastro);
+                        char tipoCadastro = inserir.next().charAt(0);
+                        tipoCadastro = Character.toUpperCase(tipoCadastro);
 
-                        int inscricao_Estadual = 0;
+                        int inscricaoEstadual = 0;
 
-                        while (tipo_Cadastro != 'F' && tipo_Cadastro != 'J') {
+                        while (tipoCadastro != 'F' && tipoCadastro != 'J') {
                             System.out.println("Informação inválida, informe novamente (F/J) ");
-                            tipo_Cadastro = inserir.next().charAt(0);
-                            tipo_Cadastro = Character.toUpperCase(tipo_Cadastro);
+                            tipoCadastro = inserir.next().charAt(0);
+                            tipoCadastro = Character.toUpperCase(tipoCadastro);
                         }
                         
-                        if (tipo_Cadastro == 'J') {
+                        if (tipoCadastro == 'J') {
                             System.out.println("Informe a Inscrição Estadual");
-                            inscricao_Estadual = inserir.nextInt();
+                            inscricaoEstadual = inserir.nextInt();
                         }
 
                         System.out.println("Informe a data de Cadastro");
                         inserir.nextLine();
-                        String data_Cadastro = inserir.nextLine();
+                        String dataCadastro = inserir.nextLine();
 
                         System.out.println("Informe o email");
                         String email = inserir.nextLine();
@@ -461,95 +406,90 @@ public class LojaConveniencia {
                         System.out.println("Informe o telefone");
                         String telefone = inserir.nextLine();
 
-                        pessoa1 = new Pessoa(id, documento, data_Cadastro, nome, cep, endereco, cidade, estado, tipo_Cadastro);
-                        pessoa1.num_Endereco = num_Endereco;
+                        pessoaCadastro = new Pessoa(id, documento, dataCadastro, nome, cep, endereco, cidade, estado, tipoCadastro);
+                        pessoaCadastro.num_Endereco = numEndereco;
                         
-                        if (tipo_Cadastro == 'J') {
-                            pessoa1.setinscricao_Estadual(inscricao_Estadual);
-
+                        if (tipoCadastro == 'J') {
+                            pessoaCadastro.setinscricao_Estadual(inscricaoEstadual);
                         }
-                        pessoa1.email = email;
-                        pessoa1.telefone = telefone;
+                        
+                        pessoaCadastro.email = email;
+                        pessoaCadastro.telefone = telefone;
 
-                        cadastro.add(pessoa1);
-
+                        arrayPessoas.add(pessoaCadastro);
                         break;
 
                     case 2:
-                        for (int i = 0; i < cadastro.size(); i++) {
-                            cadastro.get(i).listar_Cadastro();
+                        for (int i = 0; i < arrayPessoas.size(); i++) {
+                            arrayPessoas.get(i).listar_Cadastro();
                             System.out.println("----------------------------------");
                         }
                         break;
 
                     case 3:
                         System.out.println("Informe o ID que deseja alterar: ");
-                        int id_altera = inserir.nextInt();
+                        int idAltera = inserir.nextInt();
 
-                        for (int i = 0; i < cadastro.size(); i++) {
-                            if (cadastro.get(i).getId_Pessoa() == id_altera) {
+                        for (int i = 0; i < arrayPessoas.size(); i++) {
+                            if (arrayPessoas.get(i).getId_Pessoa() == idAltera) {
 
                                 System.out.println("Informe o nome do Cliente");
                                 inserir.nextLine();
-                                cadastro.get(i).nome = inserir.nextLine();
+                                arrayPessoas.get(i).nome = inserir.nextLine();
 
                                 System.out.println("Informe o documento: ");
                                 String documentoA = inserir.nextLine();
-                                cadastro.get(i).setDocumento(documentoA);
-                                //String documento = documento.get(numero).gerarBoletos();
-                                //System.out.println("Informe a Inscrição estadual");
+                                arrayPessoas.get(i).setDocumento(documentoA);
+
                                 System.out.println("Informe o CEP ");
-                                cadastro.get(i).CEP = inserir.nextLine();
+                                arrayPessoas.get(i).CEP = inserir.nextLine();
 
                                 System.out.println(" Informe o endereco");
-                                cadastro.get(i).endereco = inserir.nextLine();
+                                arrayPessoas.get(i).endereco = inserir.nextLine();
 
                                 System.out.println("Informe o numero do endereço");
-                                cadastro.get(i).num_Endereco = inserir.nextLine();
+                                arrayPessoas.get(i).num_Endereco = inserir.nextLine();
 
                                 System.out.println(" Informe a cidade");
-                                cadastro.get(i).cidade = inserir.nextLine();
+                                arrayPessoas.get(i).cidade = inserir.nextLine();
 
                                 System.out.println(" Informe o estado");
-                                cadastro.get(i).estado = inserir.nextLine();
+                                arrayPessoas.get(i).estado = inserir.nextLine();
 
                                 System.out.println("Informe o tipo de cadastro(F/J)");
-                                char tipo_CadastroA = inserir.next().charAt(0);
-                                tipo_Cadastro = Character.toUpperCase(tipo_CadastroA);
+                                char tipoCadastroAltera = inserir.next().charAt(0);
+                                tipoCadastro = Character.toUpperCase(tipoCadastroAltera);
 
-                                int inscricao_EstadualA = 0;
+                                int inscricaoEstadualAltera = 0;
 
-                                while (tipo_CadastroA != 'F' && tipo_CadastroA != 'J') {
+                                while (tipoCadastroAltera != 'F' && tipoCadastroAltera != 'J') {
                                     System.out.println("Informação inválida, informe novamente (F/J) ");
-                                    tipo_CadastroA = inserir.next().charAt(0);
-                                    tipo_CadastroA = Character.toUpperCase(tipo_CadastroA);
+                                    tipoCadastroAltera = inserir.next().charAt(0);
+                                    tipoCadastroAltera = Character.toUpperCase(tipoCadastroAltera);
                                 }
-                                cadastro.get(i).tipo_Cadastro = tipo_CadastroA;
+                                arrayPessoas.get(i).tipo_Cadastro = tipoCadastroAltera;
 
-                                if (tipo_CadastroA == 'J') {
+                                if (tipoCadastroAltera == 'J') {
                                     System.out.println("Informe a Inscrição Estadual");
-                                    inscricao_EstadualA = inserir.nextInt();
-                                    cadastro.get(i).setinscricao_Estadual(inscricao_EstadualA);
+                                    inscricaoEstadualAltera = inserir.nextInt();
+                                    arrayPessoas.get(i).setinscricao_Estadual(inscricaoEstadualAltera);
                                 }
 
                                 System.out.println("Informe a data de Cadastro");
-                                inserir.nextLine();
-                                String data_CadastroA = inserir.nextLine();
-                                cadastro.get(i).setData_Cdastro(data_CadastroA);
+                                inserir.nextLine();                               
+                                String dataCadastroAltera = inserir.nextLine();
+                                arrayPessoas.get(i).setData_Cdastro(dataCadastroAltera);
 
                                 System.out.println("Informe o email");
-                                cadastro.get(i).email = inserir.nextLine();
+                                arrayPessoas.get(i).email = inserir.nextLine();
 
                                 System.out.println("Informe o telefone");
-                                cadastro.get(i).telefone = inserir.nextLine();
-
+                                arrayPessoas.get(i).telefone = inserir.nextLine();
                             }
-
                         }
                         break;
                 }
             }
         } while (escolhaMenuPessoa != 0);
     }
-
 }
