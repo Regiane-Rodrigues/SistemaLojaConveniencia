@@ -1,3 +1,5 @@
+/*  Analista: Lucas Braga
+    Programador: Gustavo H.S. Nethson*/
 package com.mycompany.lojaconveniencia;
 
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
