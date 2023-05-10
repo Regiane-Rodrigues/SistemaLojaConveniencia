@@ -3,7 +3,6 @@ package com.mycompany.lojaconveniencia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 /**
  * @author aluno
  */
@@ -68,9 +67,8 @@ public class LojaConveniencia {
             }
         } while (escolhaMenu != 0);
     }
-
     
-     public static void menuFinanceiro(){
+    public static void menuFinanceiro(){
         
         System.out.println("Essa classe ainda não funciona");
     }
@@ -92,7 +90,6 @@ public class LojaConveniencia {
        incluirEstoque.menuEstoques();
     }
     
-    
     public static void menuBanco() {
 
         System.out.println("Revisar");
@@ -103,12 +100,12 @@ public class LojaConveniencia {
        Pagamento formaPagamento = new Pagamento();
        formaPagamento.menuPagamento();
     }
-          public static void menuVenda() {
+    
+    public static void menuVenda() {
 
         venda Vendas = new venda();
         Vendas.menuVendas();       
     }
-
     
     public static void menuCadastroProduto() {
 
@@ -116,11 +113,9 @@ public class LojaConveniencia {
         Produto.menuPrduto();      
     }
     
-    
-     public static void menuCadastroPessoa() {
+    public static void menuCadastroPessoa() {
          
          Pessoa cadPessoa = new Pessoa();
          cadPessoa.menuPessoa();
-   
     }
 }
