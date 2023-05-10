@@ -9,8 +9,6 @@ import java.util.Scanner;
  */
 public class LojaConveniencia {
 
-    static List<Banco> arrayDocumentos = new ArrayList<>();
-    static List<Pessoa> arrayPessoas = new ArrayList<>();
     static Scanner inserir = new Scanner(System.in);
 
     public static void main(String[] args) {
