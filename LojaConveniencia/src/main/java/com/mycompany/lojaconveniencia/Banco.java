@@ -3,7 +3,6 @@ package com.mycompany.lojaconveniencia;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.arrayDocumentos;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
 import java.util.Scanner;
-
 /*
  * Analista: Allan Matheus Pereira
  * Desenvolvedor: Gustavo Henrique Nava
@@ -106,7 +105,6 @@ public class Banco {
                         break;
 
                     case 4:
-                        
                         System.out.println("Deu ruim");
                         /*System.out.println("Informe o numero do cadastro do documento para gerar o boleto: ");
                         if (inserir.hasNextInt()) {
@@ -133,18 +131,17 @@ public class Banco {
                     case 0:
                         System.out.println("Voltando");
                         break;
+                        
                     default:
                         System.out.println("Opção inválida. Favor informar outra opção.");
                         break;
+                        
                 }
             } else {
                 System.out.println("Opção inválida. Favor informar outra opção.");
                 inserir.next();
             }
         } while (escolhaMenuBanco != 0);
-    
-    
-    
     }
 
     public Banco(int conta, int digitoConta, int numeroDocumento, String pagador) {
