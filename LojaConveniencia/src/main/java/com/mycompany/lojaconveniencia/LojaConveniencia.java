@@ -90,7 +90,8 @@ public class LojaConveniencia {
     
     public static void menuEstoque(){
         
-        System.out.println("Essa classe ainda não funciona");
+       Estoque incluirEstoque = new Estoque();
+       incluirEstoque.menuEstoques();
     }
     
     
