@@ -6,7 +6,8 @@ package com.mycompany.lojaconveniencia;
 
 /**
  *
- * @author Usuario
+ * @author Maycon 00234481
+ 
  */
 public class fiscal {
     public int codNota;
@@ -20,27 +21,19 @@ public class fiscal {
     private String registros;
     private String guiaRecolhimento;
 
-    
-    public class incluir {
-    private int notaEntrada;
-    private int notaSaida;
-    private int codNota;
-
-    public incluir(int numEntrada, int numSaida, int codNota) {
-        this.notaEntrada = numEntrada;
-        this.notaSaida = numSaida;
-        this.codNota = codNota;
+    public void menuFiscal(){
+        System.out.println("Fiscal");
     }
+    
+     public void incluir() {
+     int notaEntrada;
+     int notaSaida;
+     int codNota;
 }
-    public class excluir {
-    private int notaEntrada;
-    private int notaSaida;
-    private int codNota;
-
-    public excluir(int numEntrada, int numSaida, int codNota) {
-        this.notaEntrada = numEntrada;
-        this.notaSaida = numSaida;
-        this.codNota = codNota;
+    public void excluir (){
+     int notaEntrada;
+     int notaSaida;
+     int codNota;
 
 }
     public void editarNota(int numEntrada, int numSaida, int codNota, double novoValorNota) {
@@ -48,7 +41,7 @@ public class fiscal {
     this.notaSaida = numSaida;
     this.codNota = codNota;
 }
-    }
+    
     public double getCalcImposto(double imposto){
         return imposto;
 }
