@@ -1,50 +1,38 @@
 package com.mycompany.lojaconveniencia;
 
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
+import java.util.Scanner;
 
 public class Pagamento {
-    //Atributos da classe junto com os seus tipos.
+
+    public String formaDePagamento; 
     public String tipoCartao;
     private String numCartao;
+    public String statusPagamento;
+    
     private int validadeCartao;
     private int codSeguranca;
     private int digitarSenha;
-    public String statusPagamento;
     
     
     public void menuPagamento(){
-    
-         /*Pagamento realizarPagamento = new Pagamento();
-
-        realizarPagamento.setTipo("Débito");
-        realizarPagamento.setNum("0000000000000000");
-        realizarPagamento.setValidade(0425);
-        realizarPagamento.setCod(666);
-        realizarPagamento.setSenha(4002);
-        realizarPagamento.setStatus("Autorizado");*/
-        
-        
+            
     int escolhaMenuPagamento = -1;
 
-        System.out.println("------------------------------------------");
-        System.out.println("|| Menu Pagamento ||");
+        System.out.println("------------------------------------------ \n || Menu Pagamento ||");
 
         do {
-            System.out.println("------------------------------------------");
-            System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Contas a pagar \n2 - Contas a receber \n0 - Voltar");
-            System.out.println("------------------------------------------");
+            System.out.println("------------------------------------------\n Escolha uma forma de pagamento: \n1 - Contas a pagar \n2 - Contas a receber \n0 - Voltar \n------------------------------------------");
 
             if (inserir.hasNextInt()) {
                 escolhaMenuPagamento = inserir.nextInt();
                 switch (escolhaMenuPagamento) {
                     case 1:
-                        System.out.println("revisar");
-                       // System.out.println("Contas a pagar\n"+ realizarPagamento.getTipo() +"\n"+ realizarPagamento.getNum() +"\n"+ realizarPagamento.getValidade() +"\n"+ realizarPagamento.getCod() +"\n"+ realizarPagamento.getSenha() +"\n"+ realizarPagamento.getStatus());
+                        System.out.println("Forma de pagamento");
                         break;
 
                     case 2:
-                        System.out.println("Contas a receber");
+                        System.out.println("Cadastrar cartão");
                         break;
 
                     default:
@@ -59,62 +47,23 @@ public class Pagamento {
     }
 
   
-    //Constutor da classe com seus atributos devidademente definidos.
-    public void PagamentoCartao(String tipo, String num, int validade, int cod, int senha, String status){
-        tipoCartao = tipo;
-        numCartao = num;
-        validadeCartao = validade;
-        codSeguranca = cod;
-        digitarSenha = senha;
-        statusPagamento = status;
-    }
-    //variavel para definir o tipo do cartão 
-    public String getTipo(){
-        return "Debito ou Credito: " + tipoCartao; 
-    }
-    
-    public void setTipo(String tipo){
+    //Constutor da classe.
+    public void PagamentoCartao(String forma, String tipo, String num, int validade, int cod, int senha, String status){
+        this.formaDePagamento = forma;
         this.tipoCartao = tipo;
-    }
-    
-    public String getNum(){
-        return "Numero: " + numCartao; 
-    }
-    
-    public void setNum(String num){
         this.numCartao = num;
+        this.validadeCartao = validade;
+        this.codSeguranca = cod;
+        this.digitarSenha = senha;
+        this.statusPagamento = status;
     }
     
-    public String getValidade(){
-        return "Validade : " + validadeCartao; 
+    public void contasApagar(){
+        Scanner ler = new Scanner(System.in);
+        
     }
     
-     public void setValidade(int validade){
-        this.validadeCartao =  validade;
+    public void cadastrarCartao(){
+        
     }
-    
-    public String getCod(){
-        return "Codigo de Segurança: " + codSeguranca;
-    }
-     
-     public void setCod(int cod){
-        this.codSeguranca =  cod;
-    }
-    
-    public String getSenha(){
-        return "Senha: " + digitarSenha;
-    }
-
-     public void setSenha(int senha){
-        this.digitarSenha =  senha;
-    }
-    
-    public String getStatus(){
-        return "Situação: " + statusPagamento;
-    }
-     
-     public void setStatus(String status){
-        this.statusPagamento =  status;
-    }
-    
 }
