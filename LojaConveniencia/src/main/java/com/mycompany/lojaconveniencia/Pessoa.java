@@ -2,37 +2,40 @@ package com.mycompany.lojaconveniencia;
 // Desenvolvedor : Lucas Braga de Lima
 // Analista : Gustavo Nava
 
-import static com.mycompany.lojaconveniencia.LojaConveniencia.arrayPessoas;
+
+import static com.mycompany.lojaconveniencia.LojaConveniencia.menuCadastroPessoa;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
+import java.util.ArrayList;
 import java.util.Date;
 
 
+
+
 public class Pessoa {
-    private int id_Pessoa;
+    
+    
+    private int idPessoa;
     private String documento;
-    private int inscricao_Estadual;
-    private String data_Cadastro;
+    private int inscricaoEstadual;
+    private String dataCadastro;
     
     public String nome;
     public String CEP; 
     public String endereco; 
-    public String num_Endereco; 
+    public String numEndereco; 
     public String cidade;
     public String estado;
-    public char tipo_Cadastro;
+    public char tipoCadastro;
     public String email;
     public String telefone;
 
     Pessoa() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+  
     }
-
+    
     public void menuPessoa(){
-     
-        
-        System.out.println("Revisar");
-            
-        /* int escolhaMenuPessoa = -1;
+        ArrayList<String> arrayPessoas = new ArrayList<>();
+        int escolhaMenuPessoa = -1;
 
         Pessoa pessoaCadastro;
 
@@ -90,7 +93,7 @@ public class Pessoa {
                             System.out.println("Informe a Inscrição Estadual");
                             inscricaoEstadual = inserir.nextInt();
                         }
-
+                        
                         System.out.println("Informe a data de Cadastro");
                         inserir.nextLine();
                         String dataCadastro = inserir.nextLine();
@@ -102,10 +105,10 @@ public class Pessoa {
                         String telefone = inserir.nextLine();
 
                         pessoaCadastro = new Pessoa(id, documento, dataCadastro, nome, cep, endereco, cidade, estado, tipoCadastro);
-                        pessoaCadastro.num_Endereco = numEndereco;
+                        pessoaCadastro.numEndereco = numEndereco;
                         
                         if (tipoCadastro == 'J') {
-                            pessoaCadastro.setinscricao_Estadual(inscricaoEstadual);
+                            pessoaCadastro.setinscricaoEstadual(inscricaoEstadual);
                         }
                         
                         pessoaCadastro.email = email;
@@ -126,7 +129,7 @@ public class Pessoa {
                         int idAltera = inserir.nextInt();
 
                         for (int i = 0; i < arrayPessoas.size(); i++) {
-                            if (arrayPessoas.get(i).getId_Pessoa() == idAltera) {
+                            if (arrayPessoas.get(i).getIdPessoa() == idAltera) {
 
                                 System.out.println("Informe o nome do Cliente");
                                 inserir.nextLine();
@@ -143,7 +146,7 @@ public class Pessoa {
                                 arrayPessoas.get(i).endereco = inserir.nextLine();
 
                                 System.out.println("Informe o numero do endereço");
-                                arrayPessoas.get(i).num_Endereco = inserir.nextLine();
+                                arrayPessoas.get(i).numEndereco = inserir.nextLine();
 
                                 System.out.println(" Informe a cidade");
                                 arrayPessoas.get(i).cidade = inserir.nextLine();
@@ -162,18 +165,18 @@ public class Pessoa {
                                     tipoCadastroAltera = inserir.next().charAt(0);
                                     tipoCadastroAltera = Character.toUpperCase(tipoCadastroAltera);
                                 }
-                                arrayPessoas.get(i).tipo_Cadastro = tipoCadastroAltera;
+                                arrayPessoas.get(i).tipoCadastro = tipoCadastroAltera;
 
                                 if (tipoCadastroAltera == 'J') {
                                     System.out.println("Informe a Inscrição Estadual");
                                     inscricaoEstadualAltera = inserir.nextInt();
-                                    arrayPessoas.get(i).setinscricao_Estadual(inscricaoEstadualAltera);
+                                    arrayPessoas.get(i).setinscricaoEstadual(inscricaoEstadualAltera);
                                 }
 
                                 System.out.println("Informe a data de Cadastro");
                                 inserir.nextLine();                               
                                 String dataCadastroAltera = inserir.nextLine();
-                                arrayPessoas.get(i).setData_Cdastro(dataCadastroAltera);
+                                arrayPessoas.get(i).setData_Cadastro(dataCadastroAltera);
 
                                 System.out.println("Informe o email");
                                 arrayPessoas.get(i).email = inserir.nextLine();
@@ -185,63 +188,56 @@ public class Pessoa {
                         break;
                 }
             }
-        } while (escolhaMenuPessoa != 0);*/
-    
-    
-    
-    }
-    
-    
-    public Pessoa(int id_Pessoa, String documento, String data_Cadastro, String nome, String CEP, String endereco, String cidade, String estado, char tipo_Cadastro) {
-        this.id_Pessoa = id_Pessoa;
+        } while (escolhaMenuPessoa != 0);  
+        
+        
+    } 
+    public Pessoa(int idPessoa, String documento, String dataCadastro, String nome, String CEP, String endereco, String cidade, String estado, char tipoCadastro) {
+        this.idPessoa = idPessoa;
         this.documento = documento;
-        this.data_Cadastro = data_Cadastro;
+        this.dataCadastro = dataCadastro;
         this.nome = nome;
         this.CEP = CEP;
         this.endereco = endereco;
         this.cidade = cidade;
         this.estado = estado;
-        this.tipo_Cadastro = tipo_Cadastro;
+        this.tipoCadastro = tipoCadastro;
     }
     
-    public int getId_Pessoa() {
-        return id_Pessoa;
+    public int getIdPessoa() {
+        return idPessoa;
     }
-    public void setId_Pessoa(int id_Pessoa) { 
-        this.id_Pessoa = id_Pessoa;
+    public void setIdPessoa(int idPessoa) { 
+        this.idPessoa = idPessoa;
     }  //o atributo so recebe valor atravez do set
        //define um valor a um atributo
        // retorna id Pessoa
-    
-    
     public String documento() {
         return documento;
     }
     public void setDocumento(String documento){
         this.documento = documento;
     }
-    
-    
-    public int getinscricao_Estadual() {
-        return inscricao_Estadual;
+     
+    public int getinscricaoEstadual() {
+        return inscricaoEstadual;
     }
-    public void setinscricao_Estadual(int inscricao_Estadual) {
-         this.inscricao_Estadual = inscricao_Estadual;
+    public void setinscricaoEstadual(int inscricaoEstadual) {
+         this.inscricaoEstadual = inscricaoEstadual;
     }
-    
     
     public String getData_Cadastro(){
-        return data_Cadastro;
+        return dataCadastro;
     }
-    public void setData_Cdastro(String data_Cadastro){
-        this.data_Cadastro = data_Cadastro;
+    public void setData_Cdastro(String dataCadastro){
+        this.dataCadastro = dataCadastro;
     }
     public void listar_Cadastro(){
         
-        System.out.println("id : " + this.id_Pessoa);
+        System.out.println("id : " + this.idPessoa);
         System.out.println("Nome: " + this.nome);
         
-        if(this.tipo_Cadastro == 'F'){
+        if(this.tipoCadastro == 'F'){
             System.out.println("CPF: " + this.documento);
                }else{
             System.out.println("CNPJ" + this.documento);
@@ -250,7 +246,7 @@ public class Pessoa {
         System.out.println("Email: " + this.email);
         System.out.println("Estado: " + this.estado);
         System.out.println("Cidade: " + this.cidade);
-        System.out.println("Número do Endereco: " + this.num_Endereco);
+        System.out.println("Número do Endereco: " + this.numEndereco);
         System.out.println("Telefone: " + this.telefone);
     }
     

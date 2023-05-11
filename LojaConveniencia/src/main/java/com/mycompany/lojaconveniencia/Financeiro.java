@@ -1,6 +1,7 @@
 
 package com.mycompany.lojaconveniencia;
-
+// Analista Responsável : Allan
+// Desenvolvedor: Lucas
 
 public class Financeiro {
     public int gerarCobranca;
