@@ -3,6 +3,7 @@ package com.mycompany.lojaconveniencia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 /**
  * @author aluno
  */
@@ -13,6 +14,7 @@ public class LojaConveniencia {
     public static void main(String[] args) {
 
         int escolhaMenu = -1;
+        int setor = -1;
 
         System.out.println("-----------------------------------------");
         System.out.println(" || Sistema Loja de Conveniêcnia ||");
@@ -20,7 +22,13 @@ public class LojaConveniencia {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Venda \n2 - Compra \n3 - Estoque \n4 - Produto \n5 - Fiscal \n6 - Financeiro \n7 - Pessoa \n8 - Banco \n9 - Pagamento \n0 - Sair");
+            System.out.println("1 - Cadastro Pessoa");
+            System.out.println("2 - Cadastro Produto");
+            System.out.println("3 - Compras");
+            System.out.println("4 - Vendas");
+            System.out.println("5 - Estoque");
+            System.out.println("6 - Formas de pagamento");
+            System.out.println("7 - Finanças");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
@@ -28,32 +36,53 @@ public class LojaConveniencia {
 
                 switch (escolhaMenu) {
                     case 1:
-                        menuVenda();
-                        break;
-                    case 2:
-                        menuCompra();
-                        break;
-                    case 3:
-                        menuEstoque();
-                        break;
-                    case 4:
-                        menuCadastroProduto();
-                        break;
-                    case 5:
-                        menuFiscal();
-                        break;
-                    case 6:
-                       menuFinanceiro();
-                        break;
-                    case 7:
                         menuCadastroPessoa();
                         break;
-                    case 8:
-                        menuBanco();
+                    case 2:
+                        menuCadastroProduto();
                         break;
-                    case 9:
-                        menuPagamento();
+                    case 3:
+                        menuCompra();
                         break;
+                    case 4:
+                        menuVenda();
+                        break;
+                    case 5:
+                        menuEstoque();
+                        break;
+                    case 6:
+                        menuFinanceiro();
+                        break;
+                    case 7:
+                        // Arrumar, está entrando em loop por motivos de: Não sei!
+                        System.out.println("|| ESCOLHA UM SETOR ||");
+                         do {
+                             System.out.println("1 - Financeiro");
+                             System.out.println("2 - Fiscal");
+                             System.out.println("0 - Retornar ao Menu Principal");
+                        if (inserir.hasNextInt()) {
+
+                                switch (setor) {
+                                    case 1:
+                                        menuFinanceiro();
+                                        break;
+                                    case 2:
+                                        menuFiscal();
+                                        break;
+                                    case 0:
+                                        System.out.println("Sistema Encerrado");
+                                        break;
+                                    default:
+                                        System.out.println("Digite uma opção valida para continuar.");
+                                        break;
+                                }
+                        }else {
+                                System.out.println("Opção Inválida.");
+                                inserir.nextInt(); //impede que o menu entre em loop infinito
+                                }
+                            } while (setor != 0);
+                        break;
+
                     case 0:
                         System.out.println("Obrigado Volte Sempre!");
                         break;
@@ -67,55 +96,54 @@ public class LojaConveniencia {
             }
         } while (escolhaMenu != 0);
     }
-    
-    public static void menuFinanceiro(){
-        
-        System.out.println("Essa classe ainda não funciona");
-    }
-    
-    public static void menuFiscal(){
-        
-        System.out.println("Essa classe ainda não funciona");
-    }
-      
-    
-    public static void menuCompra(){
-        
-        System.out.println("Essa classe ainda não funciona");
-    }
-    
-    public static void menuEstoque(){
-        
-       Estoque incluirEstoque = new Estoque();
-       incluirEstoque.menuEstoques();
-    }
-    
-    public static void menuBanco() {
 
-        System.out.println("Revisar");
+    public static void menuCadastroPessoa() {
+
+        cadastroPessoa Pessoa = new cadastroPessoa();
+        Pessoa.menuPessoa();
+    }
+
+    public static void menuCadastroProduto() {
+
+        cadastroProduto Produto = new cadastroProduto();
+        Produto.menuPrduto();
+    }
+
+    public static void menuCompra() {
+
+        System.out.println("Essa classe ainda não funciona");
+    }
+
+    public static void menuVenda() {
+
+        venda Vendas = new venda();
+        Vendas.menuVendas();
+    }
+
+    public static void menuEstoque() {
+
+        Estoque incluirEstoque = new Estoque();
+        incluirEstoque.menuEstoques();
     }
 
     public static void menuPagamento() {
 
-       Pagamento formaPagamento = new Pagamento();
-       formaPagamento.menuPagamento();
+        Pagamento formaPagamento = new Pagamento();
+        formaPagamento.menuPagamento();
     }
-    
-    public static void menuVenda() {
 
-        venda Vendas = new venda();
-        Vendas.menuVendas();       
-    }
-    
-    public static void menuCadastroProduto() {
+    public static void menuFinanceiro() {
 
-        cadastroProduto Produto = new cadastroProduto();
-        Produto.menuPrduto();      
+        System.out.println("Essa classe ainda não funciona");
     }
-    
-    public static void menuCadastroPessoa() {
-         
-         Pessoa cadPessoa = new Pessoa();
-         cadPessoa.menuPessoa();
+
+    public static void menuFiscal() {
+
+        System.out.println("Essa classe ainda não funciona");
+    }
+
+    public static void menuBanco() {
+
+        System.out.println("Revisar");
     }
 }
