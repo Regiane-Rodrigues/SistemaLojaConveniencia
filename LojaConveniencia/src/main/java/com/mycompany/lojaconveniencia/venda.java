@@ -3,53 +3,51 @@ package com.mycompany.lojaconveniencia;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.menuCadastroProduto;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.menuVenda;
-
+/**
+ *
+ * @author allan
+ */
 public class venda {
-    public String produtoVendido;
-    public double valorTroco;
-    public double quantidadeLucro; 
-    public double valorDesconto;
+    public int idVenda;
     public double valorPago;
-    public double totalCompra;
-    public double quantidadeDinheiroCaixa;
-    public double valorAberturaCaixa;
-    public int numeroCompra;
-    public double valorFechamento;
+    public double desconto; 
+    public double totalVenda;
     
     public void menuVendas(){
      
         int escolhaMenuVendas = 1;
-        venda realizarVenda = new venda();
-        realizarVenda.abrir_caixa(1000.00);
-        realizarVenda.registrar_Venda("Costela Minga 3,400 KGS ");
-        double valorCompra = 210.55;
-        realizarVenda.valorDesconto = 1.50;
-        realizarVenda.finalizar_Processo_Compra(valorCompra);
-        realizarVenda.fechar_Caixa(1210.55);
-
+        listarProdutos();
+        calcularDesconto();
+        valorTotalCompra();
+        registrarVenda();
+        emitirNotaFiscal();
+        
         System.out.println("-----------------------------------------");
         System.out.println(" || Menu Venda ||");
 
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Abrir caixa \n2 - Fechar caixa \n3 - Registrar venda \n4 - Finalizar processo de compra \n0 - Voltar ");
+            System.out.println("1 - Inserir produto \n2 - Informar valor total \n3 - Conceder desconto \n4 - Registrar Venda  \n5 Confirmar emissão de nota \n0 - Voltar ");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
                escolhaMenuVendas = inserir.nextInt();
                 switch (escolhaMenuVendas) {
                     case 1:
-                        System.out.println("Caixa aberto: " + realizarVenda.valorAberturaCaixa);
+                        System.out.println(listarProdutos());
                         break;
                     case 2:
-                        System.out.println("Valor do fechamento: " + realizarVenda.valorFechamento);
+                        System.out.println(valorTotalCompra());
                         break;
                     case 3:
-                        System.out.println("Registrar venda: " + realizarVenda.registrar_Venda(""));
+                        System.out.println("Valor do desconto concedido: " + calcularDesconto());
                         break;
                     case 4:
-                        System.out.println("Finalizar processo de compra: " + realizarVenda.totalCompra);
+                        System.out.println("Confirma o registro da venda? \n" + registrarVenda());
+                        break;
+                    case 5:
+                        System.out.println("Deseja emitir Nota Fiscal ? \n" + emitirNotaFiscal());
                         break;
                     case 0:
                         System.out.println("Voltando");
@@ -67,32 +65,24 @@ public class venda {
         
     }
    
-    
-    
-    public String registrar_Venda(String produto_Vendido) {
-        return "Venda do produto " + produto_Vendido + " registrada.";
-    }
-    public double abrir_caixa(double valor_Abertura_Caixa) {
-        this.valorAberturaCaixa = valor_Abertura_Caixa;
-        this.quantidadeDinheiroCaixa = valorAberturaCaixa;
-        return this.quantidadeDinheiroCaixa;
-    }
-    public double finalizar_Processo_Compra(double total_Compra) {
-        this.totalCompra= total_Compra;
-        this.valorDesconto = total_Compra * 0.05;
-        this.valorPago = total_Compra - this.valorDesconto;
-        this.valorTroco = 0;
-        return this.valorPago;
-    }
-    public double fechar_Caixa(double valor_Fechamento) {
-        this.valorFechamento = valor_Fechamento;
-        this.quantidadeDinheiroCaixa += this.valorPago;
-        this.quantidadeDinheiroCaixa -= this.valorFechamento;
-        this.valorTroco = this.valorPago - this.totalCompra;
-        return this.quantidadeDinheiroCaixa;
+    public String listarProdutos(){
+        System.out.println("Produto selecionado: 003788.\n");
+        return "Produto inserido com sucesso! \nInsira o proximo produto";
     }
     
+    public double valorTotalCompra(){
+        return 1000;
+    }
+        
+    public double calcularDesconto() {
+        return  -1 * 0.10;
+    }
     
+    public String registrarVenda() {
+        return "Venda do produto " + "registrada.";
+    }  
    
-    
+    public String emitirNotaFiscal(){
+        return "Nota fiscal 0007892 emitida com sucesso!";
+    }
 }
