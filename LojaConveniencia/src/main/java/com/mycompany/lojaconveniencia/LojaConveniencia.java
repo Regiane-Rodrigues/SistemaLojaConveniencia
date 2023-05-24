@@ -51,9 +51,11 @@ public class LojaConveniencia {
                         menuEstoque();
                         break;
                     case 6:
-                        menuFinanceiro();
+                        menuPagamento();
                         break;
                     case 7:
+                        menuFinanceiro();
+                        
                         // Arrumar, está entrando em loop por motivos de: Não sei!
                         System.out.println("|| ESCOLHA UM SETOR ||");
                          do {
