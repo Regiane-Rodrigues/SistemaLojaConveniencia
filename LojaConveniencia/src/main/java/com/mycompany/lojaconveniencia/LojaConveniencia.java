@@ -108,7 +108,7 @@ public class LojaConveniencia {
     public static void menuCadastroProduto() {
 
         cadastroProduto Produto = new cadastroProduto();
-        Produto.menuPrduto();
+        Produto.menuProduto();
     }
 
     public static void menuCompra() {
