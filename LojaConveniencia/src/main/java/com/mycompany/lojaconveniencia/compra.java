@@ -13,36 +13,19 @@ import java.util.Scanner;
 public class compra {
 
         static Scanner inserir = new Scanner(System.in);
-
     
     public int idCompra;
-    public String fornecedor;
-    public int numNota;
-    public int datEmicao;
-    public int datEntrada;
+    public String numeroNotaFiscal;
     public double valTotalProd;
-    public double valorAdicional;
-    public double valorDesc;
     public double valorNota;
-    public int codProd;
-    public double valorUn;
-
-    public double compras(int idCompra, String fornecedor, double valTotalProd, double valorAdicional) {
-        double compra = 0;
-        return compra;
+    
+    public compra (int idCompra, String numeroNotaFiscal, double valTotalProd, double valorNota){
+        this.idCompra = idCompra;
+        this.numeroNotaFiscal = numeroNotaFiscal;
+        this.valTotalProd = valTotalProd;
+        this.valorNota = valorNota;
     }
 
-    public void listCompra(int idCompra) {
-        int listCompra;
-    }
-
-    public void aterarCompra(int idCompra) {
-        double aterarCompra = 0;
-    }
-
-    public void getCompra(int idCompra) {
-        double getCompra = 0;
-    }
 
     public void menuCompra() {
         int opcao = 1;
@@ -63,7 +46,7 @@ public class compra {
 
                 switch (opcao) {
                     case 1:
-                        listCompra();
+                        registrarCompra();
                         break;
                     case 2:
                         aterarCompra();
@@ -85,15 +68,18 @@ public class compra {
         } while (opcao != 0);
     }    
 
-    private void listCompra() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void registrarCompra() {
+        
+        System.out.println("Informe o numero da compra: ");
+        idCompra = inserir.nextInt(); 
+                
+        System.out.println("Informe no numero da nota fiscal ");
+          
     }
 
     private void aterarCompra() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void getCompra() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
         }
