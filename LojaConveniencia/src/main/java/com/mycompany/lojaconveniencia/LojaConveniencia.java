@@ -14,7 +14,7 @@ public class LojaConveniencia {
     public static void main(String[] args) {
 
         int escolhaMenu = -1;
-        int setor = -1;
+        
 
         System.out.println("-----------------------------------------");
         System.out.println(" || Sistema Loja de Conveniêcnia ||");
@@ -55,15 +55,16 @@ public class LojaConveniencia {
                         break;
                     case 7:
                         menuFinanceiro();
-                        
+                        int setor = -1;
                         // Arrumar, está entrando em loop por motivos de: Não sei!
                         System.out.println("|| ESCOLHA UM SETOR ||");
                          do {
                              System.out.println("1 - Financeiro");
                              System.out.println("2 - Fiscal");
                              System.out.println("0 - Retornar ao Menu Principal");
+                             
                         if (inserir.hasNextInt()) {
-
+                               setor = inserir.nextInt();
                                 switch (setor) {
                                     case 1:
                                         menuFinanceiro();
@@ -136,7 +137,8 @@ public class LojaConveniencia {
 
     public static void menuFinanceiro() {
 
-        System.out.println("Essa classe ainda não funciona");
+        Financeiro financeiro = new Financeiro();
+        financeiro.menuFinanceiro();
     }
 
     public static void menuFiscal() {

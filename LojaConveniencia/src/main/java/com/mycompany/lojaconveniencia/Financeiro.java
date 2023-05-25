@@ -5,6 +5,8 @@ import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
 // Desenvolvedor: Lucas
 
 public class Financeiro {
+
+    
     private int idFinanceiro;
     private int gerarCobranca;
     private String emissor;
@@ -13,14 +15,7 @@ public class Financeiro {
     private double saldo;
 
     
-    public Financeiro(int idFinanceiro, int gerarCobranca, String emissor, String pagador, String extratoPagamento, double saldo) {
-        this.idFinanceiro = idFinanceiro;
-        this.gerarCobranca = gerarCobranca;
-        this.emissor = emissor;
-        this.pagador = pagador;
-        this.extratoPagamento = extratoPagamento;
-        this.saldo = saldo;
-    }
+    
     
     public int getIdFinanceiro() {
         return idFinanceiro;
@@ -71,7 +66,7 @@ public class Financeiro {
     }
 
     public void menuFinanceiro(){
-        int escolhaMenuFinanceiro = 1;
+        int escolhaMenuFinanceiro = -1;
 
         System.out.println("-----------------------------------------");
         System.out.println(" || Menu Financeiro || ");
@@ -93,20 +88,17 @@ public class Financeiro {
                         lancarPagamento();
                         break;
                     case 2:
-                         
+                         documentosPagos();
                         break;
                     case 3:
-                        
+                         
                         break;
                     case 4:
-                       
+                         controlarCredito();
                         break;
                     case 5:
-                       
+                         consultarRecebimento();
                         break;  
-                    case 6:
-                       
-                        break;
                     default:
                         System.out.println("Opção inválida. Favor informar outra opção.");
                         break;
@@ -124,6 +116,11 @@ public class Financeiro {
 }
     public static void documentosPagos(){
        
+    }
+    public static void controlarCredito(){
+        
+    }
+    public static void consultarRecebimento(){
         
     }
     
