@@ -4,7 +4,6 @@ import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.menuCadastroProduto;
 import static com.mycompany.lojaconveniencia.LojaConveniencia.menuVenda;
 /**
- *
  * @author allan
  */
 public class venda {
