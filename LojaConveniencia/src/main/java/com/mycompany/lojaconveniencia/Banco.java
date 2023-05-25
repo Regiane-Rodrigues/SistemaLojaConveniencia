@@ -56,8 +56,20 @@ public class Banco {
         System.out.println("Teste.");
     }
     
-    public String listarBanco() {
-        return "Banco: " + nomeEmpresa + "\nId: " + idBanco + "\nCNPJ: " + cnpjBanco + "\nCEP: " + cep + "\nEstado: " + estado + "\nCidade: " + cidade + "\nNumero: " + numero;
+    public String listarBanco(int idLista) {
+        if (idLista == idBanco) {
+            return "Banco: " + nomeEmpresa + "\nId: " + idBanco + "\nCNPJ: " + cnpjBanco + "\nCEP: " + cep + "\nEstado: " + estado + "\nCidade: " + cidade + "\nNumero: " + numero;
+        } else {
+            return "Cadastro não encontrado.";
+        }
+    }
+    
+    public String listarBanco(String cnpjLista) {
+        if (cnpjLista.equals(cnpjBanco)) {
+            return "Banco: " + nomeEmpresa + "\nId: " + idBanco + "\nCNPJ: " + cnpjBanco + "\nCEP: " + cep + "\nEstado: " + estado + "\nCidade: " + cidade + "\nNumero: " + numero;
+        } else {
+            return "Cadastro não encontrado.";
+        }
     }
     
     public void bancos(){
@@ -98,7 +110,7 @@ public class Banco {
                         if (bancoTeste.idBanco <= 0) {
                             System.out.println("Banco não cadastrado");
                         } else {
-                            bancoTeste.toString();
+                            bancoTeste.listarBanco(1);
                         }
                         break;
 
