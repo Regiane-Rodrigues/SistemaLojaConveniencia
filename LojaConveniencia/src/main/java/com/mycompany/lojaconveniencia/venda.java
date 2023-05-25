@@ -19,6 +19,7 @@ public class venda {
         listarProdutos();
         calcularDesconto();
         valorTotalCompra();
+        formaPagamento();
         registrarVenda();
         emitirNotaFiscal();
         
@@ -47,6 +48,9 @@ public class venda {
                         System.out.println("Confirma o registro da venda? \n" + registrarVenda());
                         break;
                     case 5:
+                        System.out.println("Selecione a forma de pagamento desejada: \n" + formaPagamento());
+                        break;
+                    case 6:
                         System.out.println("Deseja emitir Nota Fiscal ? \n" + emitirNotaFiscal());
                         break;
                     case 0:
@@ -78,6 +82,9 @@ public class venda {
         return  -1 * 0.10;
     }
     
+    public String formaPagamento(){
+        return "Forma de pagamento selecionada: AVISTA no dinheiro";
+    }
     public String registrarVenda() {
         return "Venda do produto " + "registrada.";
     }  
