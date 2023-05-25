@@ -52,8 +52,7 @@ public class Banco {
     }
 
     public static void excluirBanco () {
-        //para excluir primeiro teríamos que salvar em algum lugar
-        System.out.println("Teste.");
+        System.out.println("Teste."); //para excluir primeiro teríamos que salvar em algum lugar
     }
     
     public String listarBanco(int idLista) {
