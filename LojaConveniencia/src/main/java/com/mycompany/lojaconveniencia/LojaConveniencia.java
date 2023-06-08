@@ -131,8 +131,8 @@ public class LojaConveniencia {
 
     public static void menuPagamento() {
 
-        Pagamento formaPagamento = new Pagamento();
-        formaPagamento.menuPagamento();
+        MenuPagamento formaPagamento = new MenuPagamento();
+        formaPagamento.exibirMenu();
     }
 
     public static void menuFinanceiro() {
