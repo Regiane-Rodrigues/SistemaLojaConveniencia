@@ -29,6 +29,7 @@ public class LojaConveniencia {
             System.out.println("5 - Estoque");
             System.out.println("6 - Formas de pagamento");
             System.out.println("7 - Finanças");
+            System.out.println("0 - Sair");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
@@ -54,38 +55,8 @@ public class LojaConveniencia {
                         menuPagamento();
                         break;
                     case 7:
-                        menuFinanceiro();
-                        int setor = -1;
-                        // Arrumar, está entrando em loop por motivos de: Não sei!
-                        System.out.println("|| ESCOLHA UM SETOR ||");
-                         do {
-                             System.out.println("1 - Financeiro");
-                             System.out.println("2 - Fiscal");
-                             System.out.println("0 - Retornar ao Menu Principal");
-                             
-                        if (inserir.hasNextInt()) {
-                               setor = inserir.nextInt();
-                                switch (setor) {
-                                    case 1:
-                                        menuFinanceiro();
-                                        break;
-                                    case 2:
-                                        menuFiscal();
-                                        break;
-                                    case 0:
-                                        System.out.println("Sistema Encerrado");
-                                        break;
-                                    default:
-                                        System.out.println("Digite uma opção valida para continuar.");
-                                        break;
-                                }
-                        }else {
-                                System.out.println("Opção Inválida.");
-                                inserir.nextInt(); //impede que o menu entre em loop infinito
-                                }
-                            } while (setor != 0);
+                        menuFinancas();
                         break;
-
                     case 0:
                         System.out.println("Obrigado Volte Sempre!");
                         break;
@@ -100,6 +71,46 @@ public class LojaConveniencia {
         } while (escolhaMenu != 0);
     }
 
+    public static void menuFinancas() {
+
+        int escolhaSetor = -1;
+        
+        System.out.println("-----------------------------------------");
+        
+        System.out.println("|| ESCOLHA UM SETOR ||");
+        do {
+            System.out.println("-----------------------------------------");
+            System.out.println("1 - Financeiro");
+            System.out.println("2 - Fiscal");
+            System.out.println("3 - Banco");
+            System.out.println("0 - Retornar ao Menu Principal");
+            System.out.println("-----------------------------------------");
+            if (inserir.hasNextInt()) {
+                escolhaSetor = inserir.nextInt();
+                switch (escolhaSetor) {
+                    case 1:
+                        menuFinanceiro();
+                        break;
+                    case 2:
+                        menuFiscal();
+                        break;
+                    case 3:
+                        menuBanco();
+                        break;
+                    case 0:
+                        System.out.println("Voltando.");
+                        break;
+                    default:
+                        System.out.println("Digite uma opção valida para continuar.");
+                        break;
+                }
+            } else {
+                System.out.println("Opção Inválida.");
+                inserir.nextInt(); //impede que o menu entre em loop infinito
+            }
+        } while (escolhaSetor != 0);
+    }
+    
     public static void menuCadastroPessoa() {
 
         cadastroPessoa Pessoa = new cadastroPessoa();
@@ -148,6 +159,7 @@ public class LojaConveniencia {
 
     public static void menuBanco() {
 
-        System.out.println("Revisar");
+        MenuBanco banco = new MenuBanco();
+        banco.menuBancos();
     }
-}
+}    
