@@ -7,7 +7,8 @@ import java.util.Random; //responsável por gerar string aleatórias
 import java.util.List;
 import java.util.ArrayList;
 
-public class Pagamento {
+
+interface Pagamento {
 
 	List<Pagamento> lista1 = new ArrayList<>();
 	List<Pagamento> lista2 = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Pagamento {
 	public int tipo;
 	public String pix;
 
-	public void menuPagamento() {
+	public static void menuPagamento() {
 
 		System.out.println(" Informe a forma de pagamento: ");
 
@@ -78,7 +79,7 @@ public class Pagamento {
 	}
 
 	// PAGAMENTO EM DINHEIRO
-	public void realizarPagamento(int tipo, double totalCompra, double valorRecebido) {
+	public static void realizarPagamento(int tipo, double totalCompra, double valorRecebido) {
 		this.tipo = 1;
 		lista1.add(new Pagamento());
 		for (int i = 0; i < lista1.size(); i++) {
@@ -107,7 +108,7 @@ public class Pagamento {
 	}
 
 	// GERA CHAVE ALEATÓRIA PARA PAGAMENTO POR PIX
-	public String realizarPagamento(int tipo, String pix, double totalCompra) {
+	public static String realizarPagamento(int tipo, String pix, double totalCompra) {
 		this.tipo = 2;
 		System.out.println("Informe o valor da compra");
 		totalCompra = inserir.nextDouble();
@@ -131,7 +132,7 @@ public class Pagamento {
 	}
 
 	// PAGAMENTO POR CARTÃO DE CRÉDITO
-	public void realizarPagamento(int tipo, double totalCompra, int numeroCartao, int codigoSeguranca,
+	public static void realizarPagamento(int tipo, double totalCompra, int numeroCartao, int codigoSeguranca,
 			String dataVencimentoCartao, String nomeTitular, int quantidadeParcelas) {
 		this.tipo = 3;
 		double aux; // variavel auxiliar apenas para apresentar o resultado
@@ -172,8 +173,7 @@ public class Pagamento {
 	}
 
 	// PAGAMENTO POR CARTÃO DÉBITO
-	public void realizarPagamento(int tipo, double totalCompra, int numeroCartao, int codigoSeguranca,
-			String dataVencimentoCartao, String nomeTitular) {
+	public static void realizarPagamento(int tipo, double totalCompra, int numeroCartao, int codigoSeguranca,String dataVencimentoCartao, String nomeTitular) {
 		this.tipo = 4;
 
 		System.out.println("Informe o valor da compra");
@@ -207,5 +207,28 @@ public class Pagamento {
 		}
 
 	}
+
+
+    void realizarPagamento();
+}
+
+class DinheiroPagamento implements Pagamento {
+
+    private Scanner inserir = new Scanner(System.in);
+
+    @Override
+    public void realizarPagamento() {
+        System.out.println("Informe o valor da compra:");
+        double totalCompra = inserir.nextDouble();
+        inserir.nextLine();
+
+        System.out.println("Informe o valor recebido:");
+        double valorRecebido = inserir.nextDouble();
+
+        double troco = valorRecebido - totalCompra ;
+
+        System.out.println("Troco: " + troco);
+        System.out.println("Pagamento realizado com sucesso.\n");
+    }
 
 }

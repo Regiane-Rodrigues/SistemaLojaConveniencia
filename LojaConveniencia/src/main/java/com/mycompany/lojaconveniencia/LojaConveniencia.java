@@ -18,6 +18,7 @@ public class LojaConveniencia {
 		System.out.println("-----------------------------------------");
 		System.out.println(" || Sistema Loja de Conveniêcnia ||");
 
+
 		do {
 			System.out.println("-----------------------------------------");
 			System.out.println("Escolha a opção desejada.");
@@ -29,9 +30,9 @@ public class LojaConveniencia {
 			System.out.println("6 - Formas de pagamento");
 			System.out.println("7 - Finanças");
 			System.out.println("-----------------------------------------");
-
-			if (inserir.hasNextInt()) {
+		if (inserir.hasNextInt()) {
 				escolhaMenu = inserir.nextInt();
+
 
 				switch (escolhaMenu) {
 				case 1:
@@ -136,6 +137,8 @@ public class LojaConveniencia {
 		Pagamento formaPagamento = new Pagamento();
 		formaPagamento.menuPagamento();
 	}
+        
+    
 
 	public static void menuFinanceiro() {
 
@@ -149,7 +152,7 @@ public class LojaConveniencia {
 	}
 
 	public static void menuBanco() {
-
-		System.out.println("Revisar");
-	}
+        MenuBanco banco = new MenuBanco();
+        banco.menuBancos();
+    }
 }

@@ -1,12 +1,13 @@
 package com.mycompany.lojaconveniencia;
-
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
+
 
 /*
  * Analista: Allan Matheus Pereira
  * Desenvolvedor: Gustavo Henrique Nava
  */
 public class Banco {
+
 
 	public int idBanco;
 	public String cnpjBanco;
@@ -15,6 +16,7 @@ public class Banco {
 	public String estado;
 	public String cidade;
 	public String numero;
+
 
 	public void cadastrarBanco(int id, String cnpj, String nome, String cep, String estado, String cidade,
 			String numero) {
@@ -141,4 +143,13 @@ public class Banco {
 			}
 		} while (escolhaMenuBanco != 0);
 	}
+
+    
+       
+
+    @Override
+    public String toString() {
+        return "ID:\t" + idBanco + "\nCNPJ:\t" + cnpjBanco + "\nNOME:\t" + nomeEmpresa + "\nCEP:\t" + cep + "\nESTADO:\t" + estado + "\nCIDADE:\t" + cidade + "\nTEL:\t" + numero +"\n";
+    }
+
 }
