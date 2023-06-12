@@ -1,20 +1,19 @@
 package com.mycompany.lojaconveniencia;
 
 import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author allan
  */
-public class cadastroProduto {
-    
-    public int codigoProduto ;
-    public String descricao;
-    public String categoria;
-    public double unidadeMedida;
-    
-    public void menuProduto(){
-    
-    int escolhaMenuProduto = -1;
+public class cadastroProduto implements cadastro {
+
+    public void menuProduto() {
+
+        int escolhaMenuProduto = -1;
 
         cadastroProduto cadastro = new cadastroProduto();
 
@@ -24,20 +23,23 @@ public class cadastroProduto {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Adicionar Produto \n2 - Editar produto \n3 - Excluir produto \n0 - Voltar ");
+            System.out.println("1 - Adicionar Produto \n2 - Editar produto \n3 - Listar \n4 - Excluir produto \n0 - Voltar ");
             System.out.println("-----------------------------------------");
 
             if (inserir.hasNextInt()) {
                 escolhaMenuProduto = inserir.nextInt();
                 switch (escolhaMenuProduto) {
                     case 1:
-                        System.out.println( cadastro.adicionarProduto());
+                        adicionar(inserir, null);
                         break;
                     case 2:
-                        System.out.println(cadastro.editarProduto());
+                        editar(inserir, null);
                         break;
                     case 3:
-                        cadastro.excluirProduto();
+                        listar(null);
+                        break;
+                    case 4:
+                        excluir(inserir, null);
                         break;
                     case 0:
                         System.out.println("Voltando");
@@ -51,19 +53,47 @@ public class cadastroProduto {
                 inserir.next();
             }
         } while (escolhaMenuProduto != 0);
- 
+
     }
-    public String adicionarProduto( ){
-        System.out.println("Informe o nome do produto: Barra de cereal.");
-        return "\nProduto cadastrado com sucesso!";
+
+    @Override
+    public void adicionar(Scanner inserir, ArrayList<String> cadastro) {
+        System.out.println("|| CADASTRO PRODUTO ||\n");
+
+        System.out.println("Codigo do Produto: ");
+        String codigoProduto = inserir.nextLine();
+        System.out.println("Telefone: ");
+        int numeroTelefone = inserir.nextInt();
+        System.out.println("Email: ");
+        String adicionaEmail = inserir.nextLine();
+        System.out.println("CEP: ");
+        int adicionaCep = inserir.nextInt();
+
+        System.out.println("CPF: ");
+        int adicionaCpf = inserir.nextInt();
+        System.out.println("Data Nascimento: ");
+        String adicionaData = inserir.nextLine();
+
+        Estoque estoque = new Estoque(codigoProduto);
+        pessoaFisica.adicionarPessoa(cadastro, PessoaFisica);
+
     }
-     public String editarProduto () {
-         System.out.println("Informe o código do produto que deseja alterar: 003788.");
-        return "\nProduto alterado com sucesso!" ;
+
+    @Override
+    public void listar(ArrayList<String> cadastro) {
+        // TODO Auto-generated method stub
+
     }
-    public void excluirProduto () {
-        System.out.println("Digite o código do produto que deseja excluir: 003788.");
-        System.out.println("\nItem exlucido com sucesso!");
+
+    @Override
+    public void editar(Scanner inserir, ArrayList<String> cadastro) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void excluir(Scanner inserir, ArrayList<String> cadastro) {
+        // TODO Auto-generated method stub
+
     }
 }
-    

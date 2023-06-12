@@ -9,53 +9,52 @@ package com.mycompany.lojaconveniencia;
  * @author regiane.lima
  */
 public class pessoaJuridica extends pessoa {
-    
-    private String cnpj;
-    private String nomeEmpresa;
-    private String setorAtuacao;
 
-    public pessoaJuridica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado, String rua, int numeroLocal, String cnpj, String nomeEmpresa, String setorAtuacao) {
+	private String cnpj;
+	private String nomeEmpresa;
+	private String setorAtuacao;
 
-        super(nomeCompleto, telefone, email, cep, cidade, estado, rua, numeroLocal);
-        
-        this.cnpj = cnpj;
-        this.nomeEmpresa = nomeEmpresa;
-        this.setorAtuacao = setorAtuacao;
-    }
+	public pessoaJuridica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado,
+			String rua, int numeroLocal, String cnpj, String nomeEmpresa, String setorAtuacao) {
 
-    public String getCnpj() {
-        return cnpj;
-    }
+		super(nomeCompleto, telefone, email, cep, cidade, estado, rua, numeroLocal);
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
+		this.cnpj = cnpj;
+		this.nomeEmpresa = nomeEmpresa;
+		this.setorAtuacao = setorAtuacao;
+	}
 
-    public String getNomeEmpresa() {
-        return nomeEmpresa;
-    }
+	public String getCnpj() {
+		return cnpj;
+	}
 
-    public void setNomeEmpresa(String nomeEmpresa) {
-        this.nomeEmpresa = nomeEmpresa;
-    }
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 
-    public String getSetorAtuacao() {
-        return setorAtuacao;
-    }
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
+	}
 
-    public void setSetorAtuacao(String setorAtuacao) {
-        this.setorAtuacao = setorAtuacao;
-    }
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
+	}
 
-    
-    
-     @Override
-    public void exibirInformacoes(){
-    
-       super.exibirInformacoes();
-        System.out.println("Cnpj: " +cnpj );
-        System.out.println("Nome da Empresa: " +nomeEmpresa);
-         System.out.println("Setor Atuação: " +setorAtuacao); 
-    }
-    
+	public String getSetorAtuacao() {
+		return setorAtuacao;
+	}
+
+	public void setSetorAtuacao(String setorAtuacao) {
+		this.setorAtuacao = setorAtuacao;
+	}
+
+	@Override
+	public void exibirInformacoes() {
+
+		super.exibirInformacoes();
+		System.out.println("Cnpj: " + cnpj);
+		System.out.println("Nome da Empresa: " + nomeEmpresa);
+		System.out.println("Setor Atuação: " + setorAtuacao);
+	}
+
 }
