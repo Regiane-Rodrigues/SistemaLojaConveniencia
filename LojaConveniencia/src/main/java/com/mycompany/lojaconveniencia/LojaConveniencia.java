@@ -116,7 +116,7 @@ public class LojaConveniencia {
 	public static void menuCompra() {
 
 		compra Compra = new compra();
-		Compra.menuCompra();
+		Compra.exibirMenu();
 	}
 
 	public static void menuVenda() {
