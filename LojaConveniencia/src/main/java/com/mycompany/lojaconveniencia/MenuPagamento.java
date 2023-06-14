@@ -27,13 +27,13 @@ public class MenuPagamento {
                     pagamento = new DinheiroPagamento();
                     break;
                 case 2:
-                    pagamento = new PixPagamento();
+                    pagamento = new PagamentoPix();
                     break;
                 case 3:
-                    pagamento = new CartaoCreditoPagamento();
+                    pagamento = new PagamentoCartaoCred();
                     break;
                 case 4:
-                    pagamento = new CartaoDebitoPagamento();
+                    pagamento = new PagamentoCartaoDeb();
                     break;
                 case 0:
                     System.out.println("Pagamento cancelado");
