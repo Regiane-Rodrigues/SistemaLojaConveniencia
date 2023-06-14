@@ -1,96 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
 package com.mycompany.lojaconveniencia;
 
-import static com.mycompany.lojaconveniencia.LojaConveniencia.inserir;
-import static com.mycompany.lojaconveniencia.LojaConveniencia.menuCadastroProduto;
-import static com.mycompany.lojaconveniencia.LojaConveniencia.menuVenda;
-
 /**
+ *
  * @author allan
  */
-public class Venda {
-	public int idVenda;
-	public double valorPago;
-	public double desconto;
-	public double totalVenda;
+public class Venda implements RegistrarVenda {
+    public int idVenda;
+    public double valorProduto;
+    public double desconto;
+    public double totalVenda;
 
-	public void menuVendas() {
+    public Venda(int idVenda, double valorProduto, double desconto) {
+        this.idVenda = idVenda;
+        this.valorProduto = valorProduto;
+        this.desconto = desconto;
+        this.totalVenda = calcularTotalVenda();
+    }
 
-		int escolhaMenuVendas = 1;
-		listarProdutos();
-		calcularDesconto();
-		valorTotalCompra();
-		formaPagamento();
-		registrarVenda();
-		emitirNotaFiscal();
+    public double calcularTotalVenda() {
+        return valorProduto - desconto;
+    }
 
-		System.out.println("-----------------------------------------");
-		System.out.println(" || Menu Venda ||");
-
-		do {
-			System.out.println("-----------------------------------------");
-			System.out.println("Escolha a opção desejada.");
-			System.out.println(
-					"1 - Inserir produto \n2 - Informar valor total \n3 - Conceder desconto \n4 - Registrar Venda  \n5 Confirmar emissão de nota \n0 - Voltar ");
-			System.out.println("-----------------------------------------");
-
-			if (inserir.hasNextInt()) {
-				escolhaMenuVendas = inserir.nextInt();
-				switch (escolhaMenuVendas) {
-				case 1:
-					System.out.println(listarProdutos());
-					break;
-				case 2:
-					System.out.println(valorTotalCompra());
-					break;
-				case 3:
-					System.out.println("Valor do desconto concedido: " + calcularDesconto());
-					break;
-				case 4:
-					System.out.println("Confirma o registro da venda? \n" + registrarVenda());
-					break;
-				case 5:
-					System.out.println("Selecione a forma de pagamento desejada: \n" + formaPagamento());
-					break;
-				case 6:
-					System.out.println("Deseja emitir Nota Fiscal ? \n" + emitirNotaFiscal());
-					break;
-				case 0:
-					System.out.println("Voltando");
-					break;
-				default:
-					System.out.println("Opção inválida. Favor informar outra opção.");
-					break;
-				}
-			} else {
-				System.out.println("Opção inválida. Favor informar outra opção.");
-				inserir.next();
-			}
-		} while (escolhaMenuVendas != 0);
-
-	}
-
-	public String listarProdutos() {
-		System.out.println("Produto selecionado: 003788.\n");
-		return "Produto inserido com sucesso! \nInsira o proximo produto";
-	}
-
-	public double valorTotalCompra() {
-		return 1000;
-	}
-
-	public double calcularDesconto() {
-		return -1 * 0.10;
-	}
-
-	public String formaPagamento() {
-		return "Forma de pagamento selecionada: AVISTA no dinheiro";
-	}
-
-	public String registrarVenda() {
-		return "Venda do produto " + "registrada.";
-	}
-
-	public String emitirNotaFiscal() {
-		return "Nota fiscal 0007892 emitida com sucesso!";
-	}
+    public String registrarVenda() {
+        return "Venda registrada com sucesso! ID da venda: " + idVenda + ", Valor do produto: " + valorProduto + ", Desconto: " + desconto + ", Total da venda: " + totalVenda;
+    }
 }
