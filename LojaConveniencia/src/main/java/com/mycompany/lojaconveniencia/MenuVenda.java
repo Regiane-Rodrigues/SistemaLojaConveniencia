@@ -19,20 +19,20 @@ public class MenuVenda {
 	do {
 	System.out.println("-----------------------------------------");
 	System.out.println("Escolha a opção desejada.");
-	System.out.println("1 - Inserir produto \n2 - Informar valor total \n3 - Conceder desconto \n0 - Voltar ");
+	System.out.println("1 - Inserir produto \n2 - Somar os produtos total \n3 - Registrar venda \n0 - Voltar ");
 	System.out.println("-----------------------------------------");
 
 	    if (inserir.hasNextInt()) {
 		escolhaMenuVendas = inserir.nextInt();
 		switch (escolhaMenuVendas) {
                     case 1:
-		System.out.println();
+		System.out.println("Produto adicionado com sucesso!");
                     break;
                     case 2:
-		System.out.println();
+		System.out.println("Valor total bruto = ");
                     break;
                     case 3:
-		System.out.println();
+		System.out.println("Venda registrada com sucesso");
                     break;
                     case 0:
 		System.out.println("Voltando");
