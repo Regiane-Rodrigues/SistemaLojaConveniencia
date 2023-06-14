@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Maycon 00234481
  *
  */
-public class fiscal {
+public class Fiscal {
 
 	Scanner ler = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class fiscal {
 	private String dataEmissao;
 	private String dataVencimento;
 
-	public fiscal(int idFiscal, int numeroNotaFiscal, String valorTotal, String tipoNota, double imposto, double juros,
+	public Fiscal(int idFiscal, int numeroNotaFiscal, String valorTotal, String tipoNota, double imposto, double juros,
 			double multa, String dataEmissao, String dataVencimento) {
 		this.idFiscal = idFiscal;
 		this.numeroNotaFiscal = numeroNotaFiscal;

@@ -12,25 +12,15 @@ import java.util.Scanner;
 /**
  * Autor: Regiane C R Lima Ra: 00220666
  */
-public class Estoque extends Produto {
+public class Estoque extends CadastroProduto {
+ 
+    public double quantidade;
 
-    static Scanner incluir = new Scanner(System.in);
-
-    public int quantidadeEntrada;
-    public double valorUnitarioEntrada;
-    public double valorTotalEntrada;
-    public int quantidadeSaida;
-    public double valorUnitarioSaida;
-    public int quantidadeSaldo;
-    public double valorUnitarioSaldo;
-    public double totalSaldo;
-
-    @Override
-    public void exibirInformacoes() {
-       
-        super.exibirInformacoes();
+    void Estoque(int codigoProduto, String descricao, String categoria, String unidadeMedida, double quantidade){
         
-
+        this.quantidade = quantidade;
+        super(codigoProduto, descricao, categoria, unidadeMedida);
     }
+
 
 }

@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Maycon 00234481
  */
-public class compra {
+public class Compra {
 
       private static final Scanner scanner = new Scanner(System.in);
 

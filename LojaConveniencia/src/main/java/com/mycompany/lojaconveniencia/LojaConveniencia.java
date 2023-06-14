@@ -124,7 +124,7 @@ public class LojaConveniencia {
 
     public static void menuCompra() {
 
-        compra Compra = new compra();
+        Compra Compra = new Compra();
         Compra.exibirMenu();
     }
 
