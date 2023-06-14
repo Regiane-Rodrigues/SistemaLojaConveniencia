@@ -8,10 +8,11 @@ import java.util.List;
  *
  * @author Gustavo H. Nava
  */
-public class CadastroBanco {
+public class CadastroBanco implements Cadastro {
 
     List<Banco> listaDeBancos = new ArrayList<>();
 
+    @Override
     public void adicionar() {
         Banco novoBanco = new Banco();
         System.out.println("|| CADASTRO DE BANCOS ||\n");
@@ -37,6 +38,7 @@ public class CadastroBanco {
         System.out.println("\nBanco cadastrado com sucesso\n");
     }
 
+    @Override
     public void editar() {
         System.out.println("|| EDIÇÃO DE CADASTRO DE BANCOS ||\n");
         System.out.println("Informe o ID do Banco a ser editado: ");
@@ -78,6 +80,7 @@ public class CadastroBanco {
         }
     }
 
+    @Override
     public void listar() {
         System.out.println("|| BANCOS CADASTRADOS ||\n");
         if (listaDeBancos.isEmpty()) {
@@ -89,6 +92,7 @@ public class CadastroBanco {
         }
     }
 
+    @Override
     public void excluir() {
         System.out.println("|| EXCLUSÃO DE CADASTRO DE BANCOS ||\n");
         System.out.println("Informe o ID do Banco a ser excluído: ");
