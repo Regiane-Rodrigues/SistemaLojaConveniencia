@@ -8,11 +8,11 @@ package com.mycompany.lojaconveniencia;
  *
  * @author regiane.lima
  */
-public class pessoaFisica extends pessoa {
+public class PessoaFisica extends Pessoa {
 	private int cpf;
 	private String dataNascimento;
 
-	public pessoaFisica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado,
+	public PessoaFisica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado,
 			String rua, int numeroLocal, int cpf, String dataNascimento) {
 		super(nomeCompleto, telefone, email, cep, cidade, estado, rua, numeroLocal);
 		this.cpf = cpf;

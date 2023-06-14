@@ -112,13 +112,13 @@ public class LojaConveniencia {
 
     public static void menuCadastroPessoa() {
 
-        cadastroPessoa Pessoa = new cadastroPessoa();
+        CadastroPessoa Pessoa = new CadastroPessoa();
         Pessoa.menuPessoa();
     }
 
     public static void menuCadastroProduto() {
 
-        cadastroProduto Produto = new cadastroProduto();
+        CadastroProduto Produto = new CadastroProduto();
         Produto.menuProduto();
     }
 
@@ -130,7 +130,7 @@ public class LojaConveniencia {
 
     public static void menuVenda() {
 
-        venda Vendas = new venda();
+        Venda Vendas = new Venda();
         Vendas.menuVendas();
     }
 

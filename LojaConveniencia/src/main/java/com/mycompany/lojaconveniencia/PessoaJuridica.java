@@ -8,13 +8,13 @@ package com.mycompany.lojaconveniencia;
  *
  * @author regiane.lima
  */
-public class pessoaJuridica extends pessoa {
+public class PessoaJuridica extends Pessoa {
 
 	private String cnpj;
 	private String nomeEmpresa;
 	private String setorAtuacao;
 
-	public pessoaJuridica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado,
+	public PessoaJuridica(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado,
 			String rua, int numeroLocal, String cnpj, String nomeEmpresa, String setorAtuacao) {
 
 		super(nomeCompleto, telefone, email, cep, cidade, estado, rua, numeroLocal);

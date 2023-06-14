@@ -4,7 +4,7 @@ package com.mycompany.lojaconveniencia;
  *
  * @author Gustavo H. Nava
  */
-public class Fornecedor extends pessoaJuridica {
+public class Fornecedor extends PessoaJuridica {
 
 	private String vendedor;
 

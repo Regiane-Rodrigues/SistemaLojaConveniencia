@@ -7,7 +7,7 @@ import static com.mycompany.lojaconveniencia.LojaConveniencia.menuVenda;
 /**
  * @author allan
  */
-public class venda {
+public class Venda {
 	public int idVenda;
 	public double valorPago;
 	public double desconto;

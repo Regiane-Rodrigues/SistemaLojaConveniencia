@@ -6,12 +6,13 @@ package com.mycompany.lojaconveniencia;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
  * @author regiane.lima
  */
-public class pessoa {
+public class Pessoa implements Cadastro {
 	private static int contador = 0;
 
 	private String nomeCompleto;
@@ -24,7 +25,7 @@ public class pessoa {
 	private int numeroLocal;
 	private int idPessoa;
 
-	public pessoa(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado, String rua,
+	public Pessoa(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado, String rua,
 			int numeroLocal) {
 
 		this.nomeCompleto = nomeCompleto;
@@ -130,7 +131,7 @@ public class pessoa {
 	// Lista de forma ordenada utilizando os atributos da classe
 	public static void adicionarPessoa(List<pessoa> cadastro, pessoa Pessoa) {
 
-		adicionarPessoa(cadastro, Pessoa);
+		
 	}
 
     // Lista de forma ordenada utilizando os atributos da classe
@@ -190,4 +191,27 @@ public class pessoa {
             Pessoa.exibirInformacoes();
         }
     }
+
+	@Override
+	public void adicionar(Scanner inserir, ArrayList<Cadastro> List) {
+		adicionarPessoa(List, List Pessoa);
+	}
+
+	@Override
+	public void listar(ArrayList<Cadastro> List) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'listar'");
+	}
+
+	@Override
+	public void editar(Scanner inserir, ArrayList<Cadastro> List) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'editar'");
+	}
+
+	@Override
+	public void excluir(Scanner inserir, ArrayList<Cadastro> List) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+	}
 }
