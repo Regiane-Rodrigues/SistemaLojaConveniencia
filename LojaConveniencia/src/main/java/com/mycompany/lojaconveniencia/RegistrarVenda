@@ -11,4 +11,5 @@ package com.mycompany.lojaconveniencia;
 public interface RegistrarVenda {
      
     public String registrar();
+    
 }

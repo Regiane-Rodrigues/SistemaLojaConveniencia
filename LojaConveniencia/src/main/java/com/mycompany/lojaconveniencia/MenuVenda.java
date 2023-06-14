@@ -8,7 +8,6 @@ import static com.mycompany.lojaconveniencia.LojaConveniencia.menuVenda;
  * @author allan
  */
 public class MenuVenda {
-    
     public static void main(String[] args) {
     Venda venda = new Venda(56, 567, 7.50);
     String mensagem = venda.registrarVenda();
