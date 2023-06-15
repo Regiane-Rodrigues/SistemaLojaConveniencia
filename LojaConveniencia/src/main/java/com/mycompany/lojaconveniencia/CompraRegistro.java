@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CompraRegistro {
+public class CompraRegistro extends Compra{
     
     private static final Scanner scanner = new Scanner(System.in);
     
@@ -24,7 +24,5 @@ public class CompraRegistro {
         System.out.println("Informe o valor da nota: ");
         double valorNota = scanner.nextDouble();
 
-        Compra compra = new Compra(idCompra, numNotaFiscal, valTotalProd, valorNota);
-        registro.add(compra);
     }
 }

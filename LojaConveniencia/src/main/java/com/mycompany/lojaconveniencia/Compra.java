@@ -7,13 +7,26 @@ package com.mycompany.lojaconveniencia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 /**
  *
  * @author Maycon 00234481
  */
 public class Compra {
 
-      private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public int idCompra;
+    public String numeroNotaFiscal;
+    public double valTotalProd;
+    public double valorNota;
+
+    public void Compra(int idCompra, String numeroNotaFiscal, double valTotalProd, double valorNota) {
+        this.idCompra = idCompra;
+        this.numeroNotaFiscal = numeroNotaFiscal;
+        this.valTotalProd = valTotalProd;
+        this.valorNota = valorNota;
+    }
 
     public void exibirMenu() {
         int opcao = 1;
@@ -25,12 +38,11 @@ public class Compra {
         do {
             System.out.println("-----------------------------------------");
             System.out.println("Escolha a opção desejada.");
-            System.out.println("1 - Lista de compra \n2 - Menu de compra \n3 - Compra");
+            System.out.println("1 - Registrar compra \n2 - Listar compra \n3 - Compra");
             System.out.println("-----------------------------------------");
 
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
-
                 switch (opcao) {
                     case 1:
                         CompraRegistro registro = new CompraRegistro();
@@ -39,10 +51,6 @@ public class Compra {
                     case 2:
                         CompraLista lista = new CompraLista();
                         lista.listarProdutos();
-                        break;
-                    case 3:
-                        CompraNotaFiscal notaFiscal = new CompraNotaFiscal();
-                        notaFiscal.emitirNotaFiscal();
                         break;
                     case 0:
                         System.out.println("Obrigado Volte Sempre!");
@@ -57,5 +65,8 @@ public class Compra {
             }
         } while (opcao != 0);
     }
+
+    boolean getIdCompra() {
+        throw new UnsupportedOperationException();
+    }
 }
-  
