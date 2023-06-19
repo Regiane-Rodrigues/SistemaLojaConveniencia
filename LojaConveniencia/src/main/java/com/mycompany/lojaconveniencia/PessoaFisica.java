@@ -8,7 +8,7 @@ package com.mycompany.lojaconveniencia;
  *
  * @author regiane.lima
  */
-public class PessoaFisica extends Pessoa {
+public class PessoaFisica extends CadastroPessoa {
 	private int cpf;
 	private String dataNascimento;
 

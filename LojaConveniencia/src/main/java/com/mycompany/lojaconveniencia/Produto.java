@@ -1,100 +1,57 @@
 package com.mycompany.lojaconveniencia;
 
-import java.util.List;
+import java.util.Scanner;
 
 public class Produto {
+	Scanner inserir = new Scanner(System.in);
 
-	public int codigoProduto;
-	private String descricao;
-	private String categoria;
-	private char unidadeMedida;
-	
-	
-	public void Produto(int codigoProduto, String descricao, String categoria, char unidadeMedida) {
-		
-                this.codigoProduto = codigoProduto;
-		this.categoria = categoria;
-                this.descricao = descricao;
-                this.unidadeMedida = unidadeMedida;
-		
-		
+	public void menuProduto() {
+		int opcao = -1;
+
+		System.out.println("|| Produtos || \n");
+
+		do {			
+			System.out.println("Qual função deseja executar:" +
+					"\n 1 - Adicionar" +
+					"\n 2 - Listar" +
+					"\n 3 - Editar" +
+					"\n 4 - Excluir" +
+					"\n 0 - Cancelar e sair");
+
+			if (inserir.hasNextInt()) {
+				opcao = inserir.nextInt();
+
+				switch (opcao) {
+					case 1:
+						CadastroProduto adicionaProduto = new CadastroProduto();
+						adicionaProduto.adicionar();
+						break;
+					case 2:
+						CadastroProduto listarProdutos = new CadastroProduto();
+						listarProdutos.listar();
+						break;
+					case 3:
+						CadastroProduto editaProduto = new CadastroProduto();
+						editaProduto.editar();
+						break;
+					case 4:
+						CadastroProduto excluiProduto = new CadastroProduto();
+						excluiProduto.excluir();
+						break;
+					case 0:
+						System.out.println("Sistema encerrado.");
+						break;
+					default:
+						System.out.println("Opção inválida. Digite uma opção válida para continuar.");
+						break;
+				}
+			}
+
+			System.out.println("Opção invalida.");
+			inserir.nextLine();
+
+		} while (opcao != 0);
+
 	}
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public char getUnidadeMedida() {
-        return unidadeMedida;
-    }
-
-    public void setUnidadeMedida(char unidadeMedida) {
-        this.unidadeMedida = unidadeMedida;
-    }
-        
-        
-	
-	// classe auxiliar para apresentar info
-		public void exibirInformacoes() {
-			System.out.println("Código do produto: " +codigoProduto);
-			System.out.println("Descrição: " + descricao);
-			System.out.println("Categora: " +categoria);
-			System.out.println("Unidade Medida:\n Kg- Quilogramas \nG - Gramas \nL - Litros " + unidadeMedida);
-			
-		}
-
-		// Lista de forma ordenada utilizando os atributos da classe
-		public static void adicionarPessoa(List<Produto> cadastro, Produto produto) {
-
-			cadastro.add(produto);
-		}
-
-		// Edita o cadastro através do ID e "seta" novas informações
-		public static void editarPessoa(List<Produto> cadastro, int codigoProduto, String novaDescrição, String novaCategoria, char unidadeMedida) {
-
-			if (codigoProduto >= 0 && codigoProduto < cadastro.size()) {
-                            
-                                Produto produto = cadastro.get(codigoProduto);
-				produto.setDescricao(novaDescrição);
-                                produto.setCategoria(novaCategoria);
-                                produto.setUnidadeMedida(unidadeMedida);
-				
-			}
-
-		}
-
-		// Busca o cadastro atrvés do ID e remove por completo da Lista
-		public static void excluirPessoas(List<Produto> cadastro, int codigoProduto) {
-
-			if (codigoProduto >= 0 && codigoProduto < cadastro.size()) {
-
-				cadastro.remove(codigoProduto);
-			}
-
-		}
-
-		// Apresenta a lista ordenado chamando o metodo auxiliar para apresentar a
-		// informação
-		public static void listarPessoas(List<Produto> cadastro) {
-
-			for (Produto produto : cadastro) {
-
-				produto.exibirInformacoes();
-			}
-
-		}
-	
-	
 }

@@ -34,10 +34,12 @@ public class LojaConveniencia {
 
                 switch (escolhaMenu) {
                     case 1:
-                        menuCadastroPessoa();
+                       Pessoa pessoaMenu = new Pessoa();
+                       pessoaMenu.menuPessoa();
                         break;
                     case 2:
-                        menuCadastroProduto();
+                        Produto produtoMenu = new Produto();
+                        produtoMenu.menuProduto();
                         break;
                     case 3:
                         menuCompra();
@@ -88,7 +90,8 @@ public class LojaConveniencia {
                 escolhaSetor = inserir.nextInt();
                 switch (escolhaSetor) {
                     case 1:
-                        menuFinanceiro();
+                        Financeiro menu = new Financeiro();
+                        menu.menuFinanceiro();
                         break;
                     case 2:
                         menuFiscal();
@@ -147,11 +150,7 @@ public class LojaConveniencia {
         formaPagamento.menuPagamento();
     }
 
-    public static void menuFinanceiro() {
-
-        Financeiro financeiro = new Financeiro();
-        financeiro.menuFinanceiro();
-    }
+   
 
     public static void menuFiscal() {
 

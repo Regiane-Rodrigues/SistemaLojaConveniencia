@@ -1,217 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.lojaconveniencia;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
+import java.util.function.DoubleToIntFunction;
 /**
  *
  * @author regiane.lima
  */
-public class Pessoa implements Cadastro {
-	private static int contador = 0;
 
-	private String nomeCompleto;
-	private int telefone;
-	private String email;
-	private int cep;
-	private String estado;
-	private String cidade;
-	private String rua;
-	private int numeroLocal;
-	private int idPessoa;
+ public class Pessoa {
+	Scanner inserir = new Scanner(System.in);
 
-	public Pessoa(String nomeCompleto, int telefone, String email, int cep, String cidade, String estado, String rua,
-			int numeroLocal) {
+	public void menuPessoa(){
+		int opcao = -1;
 
-		this.nomeCompleto = nomeCompleto;
-		this.telefone = telefone;
-		this.email = email;
-		this.cep = cep;
-		this.estado = estado;
-		this.cidade = cidade;
-		this.rua = rua;
-		this.numeroLocal = numeroLocal;
-		// Deixa o id de forma automática, passando o numero ao contador a cada pessoa
-		// adicionada.
-		this.idPessoa = ++contador;
+		System.out.println("|| Menu Cadastro Pessoa ||");
 
-	}
+		do{
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
+			System.out.println("Escolha uma opção: \n"
+					+ "1 - Cadastro Pessoa Física \n" 
+					+ "2 - Cadastro Pessoa Juridica \n"
+					+ "0 - Sair");
+			
+			if(inserir.hasNextInt(opcao)){
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
+				switch(opcao){
 
-	public int getTelefone() {
-		return telefone;
-	}
+					case 1:
+						PessoaFisica pessoaFisica = new PessoaFisica();
+						pessoaFisica.menuPessoaFisica();
+					break;
+					case 2:
+						PessoaJuridica pessoaJuridica = new PessoaJuridica();
+						pessoaFisica.menuPessoaJuridica();
+					break;
+					case 0:
+						System.out.println("Programa encerrado!");
+					break;
+					default:
+					System.out.println("Opção inválida. Digite uma opção válida para continuar.");
+					break;
+				}
+			} else {
+				System.out.println("Opção inválida.");
+				inserir.nextLine();
+			}
 
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getCep() {
-		return cep;
-	}
-
-	public void setCep(int cep) {
-		this.cep = cep;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public int getNumeroLocal() {
-		return numeroLocal;
-	}
-
-	public void setNumeroLocal(int numeroLocal) {
-		this.numeroLocal = numeroLocal;
-	}
-
-	public int getIdPessoa() {
-		return idPessoa;
-	}
-
-	public void setIdPessoa(int idPessoa) {
-		this.idPessoa = idPessoa;
-	}
-
-	// classe auxiliar para apresentar info
-	public void exibirInformacoes() {
-		System.out.println("ID Pessoa: " + idPessoa);
-		System.out.println("Nome: " + nomeCompleto);
-		System.out.println("Telefone: " + telefone);
-		System.out.println("Email: " + email);
-		System.out.println("CEP: " + cep);
-		System.out.println("Estado: " + estado);
-		System.out.println("Cidade: " + cidade);
-		System.out.println("Rua: " + rua);
-		System.out.println("N°: " + numeroLocal);
-
-	}
-
-	// Lista de forma ordenada utilizando os atributos da classe
-	public static void adicionarPessoa(List<pessoa> cadastro, pessoa Pessoa) {
-
+		} while(opcao != 0);
 		
-	}
-
-    // Lista de forma ordenada utilizando os atributos da classe
-    public static void adicionarPessoa(ArrayList<String> cadastro, pessoa Pessoa) {
-        cadastro.add(Pessoa);
-    }
-
-	// Edita o cadastro através do ID e "seta" novas informações
-	public static void editarPessoa(List<pessoa> cadastro, int idPessoa, String novoNome, int novoTelefone,
-			String novoEmail, int novoCep, String novoEstado, String novaCidade, String novaRua, int novoNumeroLocal) {
-
-        editarPessoa(cadastro, idPessoa, novoNome, novoTelefone, novoEmail, novoCep, novoEstado, novaCidade, novaRua, novoNumeroLocal);
-
-	}
-
-    // Edita o cadastro através do ID e "seta" novas informações
-    public static void editarPessoa(ArrayList<String> cadastro, int idPessoa, String novoNome, int novoTelefone, String novoEmail, int novoCep, String novoEstado, String novaCidade, String novaRua, int novoNumeroLocal) {
-        if (idPessoa >= 0 && idPessoa < cadastro.size()) {
-            pessoa Pessoa = cadastro.get(idPessoa);
-            Pessoa.setNomeCompleto(novoNome);
-            Pessoa.setTelefone(novoTelefone);
-            Pessoa.setEmail(novoEmail);
-            Pessoa.setCep(novoCep);
-            Pessoa.setEstado(novoEstado);
-            Pessoa.setCidade(novaCidade);
-            Pessoa.setRua(novaRua);
-            Pessoa.setNumeroLocal(novoNumeroLocal);
-        }
-    }
-
-	// Busca o cadastro atrvés do ID e remove por completo da Lista
-	public static void excluirPessoas(List<pessoa> cadastro, int idPessoa) {
-
-        excluirPessoas(cadastro, idPessoa);
-
-	}
-
-    // Busca o cadastro atrvés do ID e remove por completo da Lista
-    public static void excluirPessoas(ArrayList<String> cadastro, int idPessoa) {
-        if (idPessoa >= 0 && idPessoa < cadastro.size()) {
-            cadastro.remove(idPessoa);
-        }
-    }
-
-	// Apresenta a lista ordenado chamando o metodo auxiliar para apresentar a
-	// informação
-	public static void listarPessoas(List<pessoa> cadastro) {
-
-        listarPessoas(cadastro);
-
-	}
-
-    // Apresenta a lista ordenado chamando o metodo auxiliar para apresentar a
-    // informação
-    public static void listarPessoas(ArrayList<String> cadastro) {
-        for (pessoa Pessoa : cadastro) {
-            Pessoa.exibirInformacoes();
-        }
-    }
-
-	@Override
-	public void adicionar(Scanner inserir, ArrayList<Cadastro> List) {
-		adicionarPessoa(List, List Pessoa);
-	}
-
-	@Override
-	public void listar(ArrayList<Cadastro> List) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'listar'");
-	}
-
-	@Override
-	public void editar(Scanner inserir, ArrayList<Cadastro> List) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'editar'");
-	}
-
-	@Override
-	public void excluir(Scanner inserir, ArrayList<Cadastro> List) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'excluir'");
 	}
 }
